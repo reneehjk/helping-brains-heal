@@ -1,6 +1,6 @@
 function NewsItem({ Source, Title, Description, Link }) {
     return (
-        <div className="flex flex-col p-4 border rounded-lg shadow-md w-1/3 hover:bg-newsBlue hover:bg-opacity-10 hover:scale-105 transition duration-300">
+    <div className="flex flex-col p-4 border rounded-lg shadow-md w-1/3 hover:bg-newsBlue hover:bg-opacity-10 hover:scale-105 transition duration-300">
             
             <div> 
                 <div className="text-xs text-fontBlack font-satoshiMedium">{Source}</div>

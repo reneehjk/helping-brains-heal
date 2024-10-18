@@ -1,5 +1,5 @@
 import logo from "../assets/helpingBrainsHeal.svg";
-import NewsItem from "../components/NewsItems";
+import NewsItem from "../components/NewsItemsAbout";
 import { Link } from 'react-router-dom';
 
 function About() {
