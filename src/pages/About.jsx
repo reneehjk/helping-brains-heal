@@ -64,7 +64,7 @@ function About() {
             </div>
             <div className="flex justify-center">
                 <Link to="/news">
-                    <button className="bg-transparent border border-fontBlack px-4 py-2 text-fontBlack rounded hover:bg-fontBlack hover:text-white transition duration-300">
+                    <button className="bg-transparent border border-fontBlack px-4 py-2 text-fontBlack rounded-full hover:bg-fontBlack hover:text-white transition duration-300">
                         View All
                     </button>
                 </Link>
