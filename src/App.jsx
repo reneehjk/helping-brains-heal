@@ -11,7 +11,7 @@ import Opportunities from './pages/Opportunities';
 function App() {
   return (
     <Router>
-      <nav className="p-4 space-x-4">
+      <nav className="p-4 space-x-4 fixed top-0 left-0 z-20">
         <a href="/" className="text-blue-500 hover:underline">Home</a>
         <a href="/about" className="text-blue-500 hover:underline">About</a>
         <a href="/clinic" className="text-blue-500 hover:underline">Clinic</a>
