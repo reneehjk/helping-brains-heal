@@ -6,7 +6,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  font-size: 16;
   color-scheme: light dark;
   color: #121212;
   background-color: #F7F9FC;
@@ -17,28 +17,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
+  font-size: 1 rem;
   margin: 0;
-  display: flex;
-  place-items: center;
+  place-items: top;
   min-width: 320px;
   min-height: 100vh;
 }
 
+text{
+  color: #000000
+}
+
 h1 {
-  font-size: 3.2em;
+  font-size: 3rem;
   line-height: 1.1;
+}
+h2 {
+  font-size: 2.15 rem;
+}
+h3 {
+  font-size: 2 rem;
 }
 
 button {
