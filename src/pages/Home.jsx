@@ -7,24 +7,28 @@ const team = [
         name: 'Jane Doe',
         description: 'Please add your content here. Keep it short and simple. And smile :) ',
         backgroundImage: heartBrainVoxel,
+        link: 'https://example.com/jane-doe'
     },
     {
         role: 'Developer',
         name: 'John Smith',
         description: 'Please add your content here. Keep it short and simple. And smile :)',
         backgroundImage: heartBrainVoxel,
+        link: 'https://example.com/john-smith'
     },
     {
         role: 'Developer',
         name: 'Emily Davis',
         description: 'Please add your content here. Keep it short and simple. And smile :)',
         backgroundImage: heartBrainVoxel,
+        link: 'https://example.com/emily-davis'
     },
     {
         role: 'Developer',
         name: 'Michael Brown',
         description: 'Please add your content here. Keep it short and simple. And smile :)',
         backgroundImage: heartBrainVoxel,
+        link: 'https://example.com/michael-brown'
     },
 ];
 
@@ -53,7 +57,7 @@ const Home = () => {
                 </div>
             </header>
 
-            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 py-10">
+            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 py-36">
                 {/* Left Side: Mission Text */}
                 <div>
                     <h3 className="text-2xl font-satoshiBold mb-4">
@@ -86,7 +90,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="flex flex-col items-center justify-center py-10">
+            <section className="py-10">
                 <h2 className="text-3xl font-satoshiBold mb-6">Pamphlet</h2>
                 <div className="bg-gray-200 aspect-w-16 aspect-h-9 w-full max-w-3xl flex items-center justify-center rounded-lg shadow-md">
                     <p className="text-gray-500">Placeholder</p>
@@ -104,8 +108,10 @@ const Home = () => {
                             name={member.name}
                             description={member.description}
                             backgroundImage={member.backgroundImage}
+                            link={member.link}
                         />
                     ))}
+
                 </div>
             </section>
         </div>
