@@ -35,29 +35,32 @@ const team = [
 const Home = () => {
     return (
         <div className=''>
-            <header className="py-10">
-                <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 items-center'>
+            <header className="py-10 relative">
+                {/* Left and Right Orbs */}
+                <div className="absolute bottom-0 -left-10 w-56 h-56 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"></div>
+                <div className="absolute bottom-0 right-0 w-56 h-56 bg-[#37CAEC] opacity-70 rounded-full blur-[120px] -z-10"></div>
+
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
-                    <div className=''>
+                    <div>
                         <h1 className="text-4xl font-bold leading-tight">
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 max-w-md">
-                            Bringing accessible treatment and care packages to support rehabilitation for
-                            those with acquired brain injuries (ABI).
+                            Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
                         </p>
                         <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">
                             Learn More
                         </a>
                     </div>
+
                     {/* Hero Image */}
-                    <div className='mt-6 md:mt-0'>
+                    <div className="mt-6 md:mt-0">
                         <img src={heartBrainVoxel} className="mx-auto max-w-full h-auto rounded-lg shadow-lg" alt="Heart Brain Voxel" />
                     </div>
                 </div>
             </header>
-
-            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 py-36">
+            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-10">
                 {/* Left Side: Mission Text */}
                 <div>
                     <h3 className="text-2xl font-satoshiBold mb-4">
