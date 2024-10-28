@@ -3,19 +3,16 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        color:{
-          1:"#121212", // font color black
-          2:"#125488", // primary dark blue 
-          3:"#5BA3ED", // secondary light blue
-          4:"F7F9FC", // background
-        }
-      },
-      borderWidth: {
-        DEFAULT: "8px",
+        fontBlack: '#121212',  // font color black
+        primaryBlue: '#125488',  // primary dark blue
+        secondaryBlue: '#5BA3ED',  // secondary light blue
+        newsBlue: '#2A93D5', // for news
+        background: '#F7F9FC',  // background color
       },
       fontFamily: {
         satoshiBold: ['Satoshi-Bold', 'sans-serif'],
