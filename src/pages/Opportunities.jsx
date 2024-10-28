@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
 const Opportunities = () => {
-    return <div className="mt-[200px] mx-[75px] ">
-        <h1 className="text-[3rem] font-satoshiBold ">Treatment Opportunities</h1>
+    return <div className="mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20 ">
+        <h1 className="text-[3rem] font-satoshiBold pt-20">Treatment Opportunities</h1>
 
         <div className="mt-[125px] mx-auto justify-center flex flex-row gap-x-20 flex-wrap ">
             <div className='max-w-[400px] max-h-[300px]'>

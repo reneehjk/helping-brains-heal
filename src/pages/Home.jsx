@@ -34,7 +34,7 @@ const team = [
 
 const Home = () => {
     return (
-        <div className=''>
+        <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
             <header className="py-10 relative">
                 {/* Left and Right Orbs */}
                 <div className="absolute bottom-0 -left-10 w-56 h-56 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"></div>
@@ -102,7 +102,7 @@ const Home = () => {
 
             <section className='py-10'>
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}
                     {team.map((member, index) => (
                         <TeamCard
