@@ -13,6 +13,7 @@ export default {
         secondaryBlue: '#5BA3ED',  // secondary light blue
         newsBlue: '#2A93D5', // for news
         background: '#F7F9FC',  // background color
+        lightGrey:'#BCBCBC',
       },
       fontFamily: {
         satoshiBold: ['Satoshi-Bold', 'sans-serif'],
