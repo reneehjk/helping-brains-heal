@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import sanityClient from '../sanity/sanityClient'
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
 
@@ -33,6 +35,25 @@ const team = [
 ];
 
 const Home = () => {
+    const [teamMembers, setTeamMembers] = useState([])
+
+    useEffect(() => {
+        sanityClient
+            .fetch(
+                `*[_type == "teamMember"]{
+                    role,
+                    name,
+                    description,
+                    "backgroundImage": backgroundImage.asset->url,
+                    link
+                }`
+            )
+            .then((data) => setTeamMembers(data))
+            .catch(console.error);
+
+        console.log(teamMembers)
+    }, []);
+
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
             <header className="py-10 relative">
@@ -104,7 +125,7 @@ const Home = () => {
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}
-                    {team.map((member, index) => (
+                    {teamMembers.map((member, index) => (
                         <TeamCard
                             key={index}
                             role={member.role}
