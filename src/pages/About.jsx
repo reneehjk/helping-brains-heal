@@ -49,18 +49,18 @@ function About() {
                 Description="Helping Brains Heal's partnership with ConcussionBox.org was featured in OBIA’s latest magazine issue, focusing on accessible rehabilitation resources for individuals with brain injuries." 
                 Link="https://concussion.org/"
                 />
-                <NewsItem   
-                Source="Ontario Brain Injury Association’s Quarterly Magazine" 
-                Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors" 
-                Description="Helping Brains Heal's partnership with ConcussionBox.org was featured in OBIA’s latest magazine issue, focusing on accessible rehabilitation resources for individuals with brain injuries." 
-                Link="https://concussion.org/"
+                <NewsItem
+                    Source="Ontario Brain Injury Association’s Quarterly Magazine"
+                    Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors"
+                    Description="Helping Brains Heal's partnership with ConcussionBox.org was featured in OBIA’s latest magazine issue, focusing on accessible rehabilitation resources for individuals with brain injuries."
+                    Link="https://concussion.org/"
                 />
-                <NewsItem   
-                Source="Ontario Brain Injury Association’s Quarterly Magazine" 
-                Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors" 
-                Description="Helping Brains Heal's partnership with ConcussionBox.org was featured in OBIA’s latest magazine issue, focusing on accessible rehabilitation resources for individuals with brain injuries." 
-                Link="https://concussion.org/"
-                />  
+                <NewsItem
+                    Source="Ontario Brain Injury Association’s Quarterly Magazine"
+                    Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors"
+                    Description="Helping Brains Heal's partnership with ConcussionBox.org was featured in OBIA’s latest magazine issue, focusing on accessible rehabilitation resources for individuals with brain injuries."
+                    Link="https://concussion.org/"
+                />
             </div>
             <div className="flex justify-center">
                 <Link to="/news">

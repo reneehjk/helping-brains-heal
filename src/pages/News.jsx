@@ -1,8 +1,8 @@
 import NewsItem from "../components/NewsItems";
 
-function News () {
+function News() {
     return (
-        <div className="min-h-screen bg-background justify-start lg:p-24 py-16 px-10 space-y-6select-none">
+        <div className="min-h-screen bg-background justify-start lg:p-24 py-16 px-10 space-y-6 select-none">
             <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl lg:pb-24 pb-14">Latest News</div>
             <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
                 <NewsItem   
@@ -29,6 +29,6 @@ function News () {
             </div>
         </div>
     );
-};
+}
 
 export default News;
