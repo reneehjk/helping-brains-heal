@@ -1,0 +1,13 @@
+@keyframes appearSlowly {
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.animate-appearSlowly {
+    opacity: 0.8; scale: 0.8;
+    animation: appearSlowly linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 700px;
+}
