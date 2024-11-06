@@ -6,7 +6,7 @@ function About() {
     return (
         <div className="bg-background">
             <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 select-none overflow-hidden mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
-                <div className="flex items-end lg:space-x-12 space-x-3 lg:pb-24">
+                <div className="flex items-end lg:space-x-12 space-x-3 lg:pb-24 mt-20">
                     <img src={logo} className="grayscale lg:w-20 lg:h-20 w-10 h-10 self-center" alt="Helping Brains Heal Logo" />
                     <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl">
                         About Helping Brains Heal
@@ -31,8 +31,9 @@ function About() {
                         incididunt ut labore et dolore magna aliqua.
                     </div>
                 </div>
-
+                
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Gallery</div>
+
                 <div className="flex flex-row flex-wrap justify-between lg:pb-24">
                     <img src={logo} className="lg:w-1/3 w-1/2" />
                     <img src={logo} className="lg:w-1/3 w-1/2" />
