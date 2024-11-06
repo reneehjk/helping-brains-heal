@@ -4,7 +4,7 @@ import ButtonLink from "./ButtonLink";
 
 const InfoCard = ({ name, location, details, imageSrc, linkTo }) => {
     return (
-        <div className="group relative rounded-xl overflow-hidden min-w-[240px] max-w-[240px] h-[345px] sm:max-w-[345px] sm:h-[320px] lg:w-full lg:h-[387px] hover:shadow-md duration-300">
+        <div className="group relative rounded-xl overflow-hidden min-w-[240px] max-w-[240px] h-[345px] sm:max-w-[345px] sm:h-[360px] lg:w-full lg:h-[387px] hover:shadow-md duration-300">
             <div className="h-[98px] sm:h-[125px] lg:h-[155px] overflow-hidden">
                 {(!imageSrc && <div className='bg-blue-300 w-full h-full'></div>)||(imageSrc && (<img src={imageSrc} alt={name} className="w-auto object-cover" />))}
             </div>
@@ -21,7 +21,7 @@ const InfoCard = ({ name, location, details, imageSrc, linkTo }) => {
                 </a>
                 
                 <p className="mt-[1px] lg:mt-[7px] text-center text-primaryBlue sm:text-left text-[1.05rem] font-satoshiBold">{location || "Location"}</p>
-                <p className="mt-[3px] lg:mt-[11px] max-h-[150px] font-erodeRegular whitespace-pre-line">{details || "Description"}</p>
+                <p className="mt-[3px] lg:mt-[7px] max-h-[150px] font-erodeRegular ">{details || "Description"}</p>
                 <div className=" hidden sm:block absolute top-1 right-0 ">
                     <ButtonLink label={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />} href={linkTo} width="py-1 sm:py-2 px-4" />
                 </div>
