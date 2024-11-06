@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Clinic from './pages/Clinic';
@@ -14,7 +13,17 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+        <nav className="bg-background p-4 fixed top-0 left-0 z-20 shadow-sm font-satoshiMedium w-full">
+          <div className="flex flex-wrap justify-start space-x-4 ">
+            <a href="/" className="hover:underline">Home</a>
+            <a href="/about" className="hover:underline">About Us</a>
+            <a href="/clinic" className="hover:underline">Clinic</a>
+            <a href="/communities" className="hover:underline">Communities</a>
+            <a href="/donations" className="hover:underline">Donations</a>
+            <a href="/news" className="hover:underline">News</a>
+            <a href="/opportunities" className="hover:underline">Opportunities</a>
+          </div>
+        </nav>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -25,7 +34,7 @@ function App() {
           <Route path="/opportunities" element={<Opportunities />} />
         </Routes>
       </Router>
-      <Footer />
+
     </div>
   );
 }
