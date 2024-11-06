@@ -19,7 +19,7 @@ export default {
         satoshiBold: ['Satoshi-Bold', 'sans-serif'],
         satoshiMedium: ['Satoshi-Medium', 'sans-serif'],
         erodeRegular: ['Erode-Regular', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [],

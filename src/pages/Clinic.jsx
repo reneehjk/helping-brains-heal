@@ -1,29 +1,27 @@
 import InfoCard from "../components/informationCard";
-
-const info = [
-    {
-        title: "Clinic Name",
-        subtitle: "Location",
-        description: "Through continuous learning and collaboration, we can innovate and solve complex problems, making impactful changes to society and creating a brighter future for all"
-    },
-    {
-        title: "Clinic Name",
-        subtitle: "Location",
-        description: "Some details --- eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim"
-    },
-    {
-        title: "Clinic Name",
-        subtitle: "Location",
-        description: "Some details --- eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim"
-    },
-    {
-        title: "Clinic Name",
-        subtitle: "Location",
-        description: "Some details --- eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim"
-    }
-]
+import sanityClient from '../sanity/sanityClient'
+import { useEffect, useState } from 'react';
 
 const Clinic = () => {
+    const [clinics, setClinics] = useState([])
+
+    useEffect(() => {
+        sanityClient
+            .fetch(
+                `*[_type == "clinic"]{
+                    name,
+                    location,
+                    description,
+                    "image": image.asset->url,
+                    link
+                }`
+            )
+            .then((data) => setClinics(data))
+            .catch(console.error);
+
+        console.log(clinics)
+    }, []);
+
     return (
         <div className="bg-background">
             <header className="relative w-full h-32 sm:h-48 md:h-60 bg-cover bg-center">
@@ -36,14 +34,17 @@ const Clinic = () => {
 
                 </div>
             </header>
-
-            <div className="w-full max-w-7xl px-5 py-10 md:px-10 md:py-20">
+  
+            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
                 <div className="mb-[110px] flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
-                    {info.map((information, index) => (
+                    {clinics.map((clinic, index) => (
                         <InfoCard
-                            clinicName={information.title}
-                            location={information.subtitle}
-                            details={information.description}
+                            key = {index}
+                            name={clinic.name}
+                            location={clinic.location}
+                            details={clinic.description}
+                            imageSrc={clinic.image}
+                            linkTo={clinic.link}
                         />
                     ))}
                 </div>

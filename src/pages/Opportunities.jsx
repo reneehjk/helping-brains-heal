@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStethoscope, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import '../styles.css';
 
 const remark = [
     {
@@ -41,18 +42,18 @@ const Opportunities = () => {
 
 
         <div className="my-[75px] md:my-[125px] justify-center flex gap-x-5 lg:gap-x-40 gap-y-5 flex-wrap md:flex-nowrap">
-            <div className='grow max-w-[450px] min-w-[100px] h-[250px]'>
-                <Link to="/clinic" className="text-primaryBlue  text-[2.15rem] font-satoshiBold hover:underline ">
-                    <FontAwesomeIcon icon={faStethoscope} /> Clinic &gt;
+            <div className='grow max-w-[450px] min-w-[100px] h-[250px] hover:scale-105 transition duration-500'>
+                <Link to="/clinic" className="group text-primaryBlue  text-[2.15rem] font-satoshiBold hover:text-newsBlue hover:scale-105 transition duration-300 ">
+                    <span className='text-[1.8rem]'><FontAwesomeIcon icon={faStethoscope} /></span> Clinic <span className='group-hover:animate-pulse'>&gt;</span>
                 </Link>
                 <div className='mt-[25px] font-erodeRegular overflow-auto'>
                     Clinical treatment opportunities
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.
                 </div>
             </div>
-            <div className='grow max-w-[450px] min-w-[100px] h-[250px]'>
-                <Link to="/communities" className="text-primaryBlue text-[2.15rem] font-satoshiBold hover:underline ">
-                    <FontAwesomeIcon icon={faUserGroup} /> Communities &gt;
+            <div className='grow max-w-[450px] min-w-[100px] h-[250px] hover:scale-105 transition duration-500'>
+                <Link to="/communities" className="group text-primaryBlue text-[2.15rem] font-satoshiBold  hover:text-newsBlue hover:scale-150 transition duration-300 ">
+                <span className='text-[1.8rem]'><FontAwesomeIcon icon={faUserGroup} /></span> Communities <span className='group-hover:animate-pulse'>&gt;</span>
                 </Link>
                 <div className='mt-[25px] font-erodeRegular overflow-auto'>
                     Clinical treatment opportunities
@@ -63,24 +64,23 @@ const Opportunities = () => {
 
         <div className='flex flex-row gap-x-[60px] flex-wrap overflow-hidden sm:h-[640px] gap-y-[100px]'>
             <div className=''>
-                <h1 className='text-[3rem] font-satoshiBold '>Concussion and Stroke</h1>
-                <h2 className='text-primaryBlue  text-[2.125rem] font-satoshiBold mt-[3px]'>What Should I Do Next?</h2>
+                <h1 className='text-center md:text-left text-[3rem] font-satoshiBold '>Concussion and Stroke</h1>
+                <h2 className='text-center md:text-left text-primaryBlue  text-[2.125rem] font-satoshiBold mt-[3px]'>What Should I Do Next?</h2>
                 <div className='mt-[35px] grid grid-rows-1 gap-[13px] max-w-[590px]'>
                     {remark.map((set, index) => (
-                        <div>
-                            <text className='font-satoshiBold text-[2 rem] block'>
+                        <div className='animate-appearSlowly'>
+                            <div className='font-satoshiBold text-[2 rem] block'>
                                 {set.main}
-                            </text>
-                            <text className='font-erodeRegular'>
+                            </div>
+                            <div className='font-erodeRegular'>
                                 {set.description}
-                            </text>
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
             <div className='hidden md:block shrink flex-1 py-5 px-3 bg-clip-padding border-dashed border-4 border-color-2 bg-color-2 bg-opacity-35 rounded-xl'>
-
-                <span>Maybe some photo some animation so it doesn't look so boring</span>
+            <div class="w-16 h-16 bg-blue-500 rounded-full animate-bounce"></div>
             </div>
         </div>
     </div>

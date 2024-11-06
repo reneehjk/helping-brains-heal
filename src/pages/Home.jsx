@@ -48,7 +48,10 @@ const Home = () => {
                     link
                 }`
             )
-            .then((data) => setTeamMembers(data))
+            .then((data) => {
+                setTeamMembers(data);
+                console.log(data)
+            })
             .catch(console.error);
 
         console.log(teamMembers)
