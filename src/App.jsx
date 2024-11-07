@@ -17,11 +17,12 @@ function App() {
           <div className="flex flex-wrap sm:justify-start justify-center space-x-4 ">
             <a href="/" className="hover:underline">Home</a>
             <a href="/about" className="hover:underline">About Us</a>
+            <a href="/opportunities" className="hover:underline">Opportunities</a>
             <a href="/clinic" className="hover:underline">Clinic</a>
             <a href="/communities" className="hover:underline">Communities</a>
             <a href="/donations" className="hover:underline">Donations</a>
             <a href="/news" className="hover:underline">News</a>
-            <a href="/opportunities" className="hover:underline">Opportunities</a>
+
           </div>
         </nav>
         <Routes>

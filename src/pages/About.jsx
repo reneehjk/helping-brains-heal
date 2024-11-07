@@ -44,7 +44,7 @@ function About() {
                 </div>
 
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Latest News</div>
-                <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
+                <div className="flex lg:flex-row lg:justify-between lg:space-x-5 flex-col justify-center space-y-4">
                     <NewsItem
                         Source="Ontario Brain Injury Association’s Quarterly Magazine"
                         Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors"

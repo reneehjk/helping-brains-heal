@@ -64,10 +64,10 @@ const Home = () => {
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight">
+                        <h1 className="text-4xl font-bold leading-tight xs:mt-16 font-satoshiBold">
                             Helping Brains Heal
                         </h1>
-                        <p className="mt-4 text-lg text-gray-900 max-w-md">
+                        <p className="mt-4 text-lg text-gray-900 max-w-md font-erodeRegular">
                             Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
                         </p>
                         <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">

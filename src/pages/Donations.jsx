@@ -1,2 +1,7 @@
-const Donations = () => <h1>Home Page</h1>;
+function Donations () {
+    return (
+        <div>Donations</div>
+    );
+};
+
 export default Donations;

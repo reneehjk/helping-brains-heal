@@ -5,7 +5,7 @@ function News() {
         <div className="bg-background">
             <div className="min-h-screen  justify-start space-y-6 select-none mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
                 <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl lg:pb-24 pb-10 md:mt-20 sm:mt-20 xs:mt-28">Latest News</div>
-                <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
+                <div className="flex lg:flex-row lg:justify-between lg:space-x-5 flex-col justify-center space-y-4">
                     <NewsItem
                         Source="Ontario Brain Injury Association’s Quarterly Magazine"
                         Title="Helping Brains Heal: Expanding Care Access for Brain Injury Survivors"
