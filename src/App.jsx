@@ -14,7 +14,7 @@ function App() {
     <div>
       <Router>
         <nav className="bg-background p-4 fixed top-0 left-0 z-20 shadow-sm font-satoshiMedium w-full">
-          <div className="flex flex-wrap justify-start space-x-4 ">
+          <div className="flex flex-wrap sm:justify-start justify-center space-x-4 ">
             <a href="/" className="hover:underline">Home</a>
             <a href="/about" className="hover:underline">About Us</a>
             <a href="/clinic" className="hover:underline">Clinic</a>
