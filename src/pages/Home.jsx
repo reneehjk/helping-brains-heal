@@ -2,42 +2,15 @@ import { useEffect, useState } from 'react';
 import sanityClient from '../sanity/sanityClient'
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
-
-const team = [
-    {
-        role: 'Director',
-        name: 'Jane Doe',
-        description: 'Please add your content here. Keep it short and simple. And smile :) ',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/jane-doe'
-    },
-    {
-        role: 'Developer',
-        name: 'John Smith',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/john-smith'
-    },
-    {
-        role: 'Developer',
-        name: 'Emily Davis',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/emily-davis'
-    },
-    {
-        role: 'Developer',
-        name: 'Michael Brown',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/michael-brown'
-    },
-];
+import Button from '../components/Button'
 
 const Home = () => {
     const [teamMembers, setTeamMembers] = useState([])
+    const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
+    const [displayedCount, setDisplayedCount] = useState(0);
 
     useEffect(() => {
+        // team member collection
         sanityClient
             .fetch(
                 `*[_type == "teamMember"]{
@@ -53,9 +26,47 @@ const Home = () => {
                 console.log(data)
             })
             .catch(console.error);
-
-        console.log(teamMembers)
+        // boxes donated count
+        sanityClient
+            .fetch(
+                `*[_type == "boxesDonated"][0]{
+                    count
+                }`
+            )
+            .then((data) => {
+                if (data && data.count) {
+                    setBoxesDonatedCount(data.count);
+                }
+            })
+            .catch(console.error);
     }, []);
+
+    // Animate displayed count
+    useEffect(() => {
+        const duration = 1000; // animation duration in milliseconds
+        const startTime = performance.now();
+
+        const easeOutQuad = (t) => t * (2 - t); // Easing function for a smooth ease-out effect
+
+        const ticker = setInterval(() => {
+            const elapsed = performance.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1); // Ensure progress does not exceed 1
+            // Apply easing function to progress
+            const easedProgress = easeOutQuad(progress);
+            const currentCount = Math.ceil(easedProgress * boxesDonatedCount);
+            setDisplayedCount(currentCount);
+
+            // Stop the ticker when we've reached the target count
+            if (progress === 1) {
+                clearInterval(ticker);
+            }
+        }, 16); // roughly 60 frames per second
+
+        return () => clearInterval(ticker); // Cleanup on unmount
+    }, [boxesDonatedCount]);
+
+    // Calculate the progress as a percentage of 100 based on displayedCount
+    const progressPercentage = Math.min((displayedCount / 100) * 100, 100);
 
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
@@ -67,15 +78,13 @@ const Home = () => {
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight">
+                        <h1 className="text-4xl font-bold leading-tight pt-20">
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 max-w-md">
                             Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
                         </p>
-                        <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">
-                            Learn More
-                        </a>
+                        <Button to="/about" className='mt-5'>About us</Button>
                     </div>
 
                     {/* Hero Image */}
@@ -98,22 +107,19 @@ const Home = () => {
                 {/* Right Side: Goal Section */}
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs mx-auto py-10">
                     <h4 className="text-lg font-satoshiBold mb-2">Goal: 100 Care Packages</h4>
-                    <p className="text-md font-satoshiBold mb-2 opacity-50">95/100</p>
+                    <p className="text-md font-satoshiBold mb-2 opacity-50">{displayedCount}/100</p>
 
                     {/* Progress Bar */}
                     <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                         <div
                             className="bg-black h-2 rounded-full"
-                            style={{ width: "95%" }}  // Update the width dynamically based on progress
+                            style={{ width: `${progressPercentage}%` }}  // Update the width dynamically based on progress
                         ></div>
                     </div>
-
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of delivering 100 care packages to clinics and organizations supporting ABI recovery.
                     </p>
-                    <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">
-                        Donate
-                    </a>
+                    <Button variant="outline" disabled="true" to="" className='mt-5'>Donate (under construction)</Button>
                 </div>
             </section>
 
