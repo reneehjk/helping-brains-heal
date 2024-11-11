@@ -3,43 +3,23 @@ import sanityClient from '../sanity/sanityClient'
 import React, { useEffect, useState } from 'react';
 
 const Donations = () => {
-    // const [donation, setDonation] = useState([])
+    const [donations, setDonations] = useState([])
 
-    // useEffect(() => {
-    //     sanityClient
-    //         .fetch(
-    //             `*[_type == "donationBin"]{
-    //                 name,
-    //                 location,
-    //                 description,
-    //                 "image": image.asset->url,
-    //                 link
-    //             }`
-    //         )
-    //         .then((data) => setClinics(data))
-    //         .catch(console.error);
+    useEffect(() => {
+        sanityClient
+            .fetch(
+                `*[_type == "donation"]{
+                    name,
+                    description,
+                    "image": image.asset->url,
+                    link
+                }`
+            )
+            .then((data) => setDonations(data))
+            .catch(console.error);
 
-    //     console.log(clinics)
-    // }, []);
-
-    const donations = [
-        {
-            name: "A",
-            details: "Every item donated helps support local charities and provides essential goods to those in need. Please ensure all items are clean and in usable condition before donating. Thank you for helping make a difference!"
-        },
-        {
-            name: "B",
-            details: "Every item donated helps support local charities and provides essential goods to those in need. Please ensure all items are clean and in usable condition before donating. Thank you for helping make a difference!"
-        },
-        {
-            name: "C",
-            details: "Every item donated helps support local charities and provides essential goods to those in need. Please ensure all items are clean and in usable condition before donating. Thank you for helping make a difference!"
-        },
-        {
-            name: "D",
-            details: "Every item donated helps support local charities and provides essential goods to those in need. Please ensure all items are clean and in usable condition before donating. Thank you for helping make a difference!"
-        },
-    ]
+        console.log(donations)
+    }, []);
 
     return <div className="mx-auto realtive w-full max-w-7xl px-5 py-10 md:px-10 md:py-20 ">
         <div className="absolute bottom-2 left-[50%] w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
@@ -52,13 +32,15 @@ const Donations = () => {
                 Our goal is to make a tangible impact on the recovery process for those affected by acquired brain injuries.
             </div>
         </div>
-        <div className=" mt-10 md:mt-20 w-full md:overflow-auto">
+        <div className=" py-3 px-3 mt-10 md:mt-20 w-full md:overflow-auto">
             <div className="flex flex-col md:flex-row gap-x-6 gap-y-3">
-                {donations.map((set, index) => (
+                {donations.map((donation, index) => (
                     <div className="" key={index}>
                         <DonationCard
-                            name={set.name}
-                            details={set.details}
+                            name={donation.name}
+                            details={donation.description}
+                            imageSrc={donation.image}
+                            linkTo={donation.link}
                         />
                     </div>
                 ))}
