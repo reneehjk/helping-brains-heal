@@ -3,7 +3,7 @@ import ButtonLink from "./ButtonLink";
 const DonationCard = ({ name, details, imageSrc, linkTo, progressBar }) => {
     return (
 
-        <div className="group py-5 px-7 relative bg-[#F7F9FC] md:w-[530px] rounded-xl hover:shadow-md transition-all duration-300">
+        <div className="group py-5 px-7 relative bg-background md:w-[530px] rounded-xl hover:shadow-md transition-all duration-300">
             <h3 className="pb-1 md:pb-[16px] w-full text-[2rem] font-satoshiBold">{name || "Donation Title"}</h3>
             <div className="hidden md:block h-[120px] w-[475px] rounded-lg overflow-hidden">
                 {(!imageSrc && <div className='bg-blue-300 w-full h-full'></div>) || (imageSrc && (<img src={imageSrc} alt={name} className="w-auto object-cover" />))}
