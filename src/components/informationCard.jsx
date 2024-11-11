@@ -20,7 +20,7 @@ const InfoCard = ({ name, location, details, imageSrc, linkTo }) => {
                     <span className='ml-3 text-[1.15rem]'><FontAwesomeIcon icon={faArrowUpRightFromSquare}/>  </span>
                 </a>
                 
-                <p className="mt-[1px] lg:mt-[7px] text-center text-primaryBlue sm:text-left text-[1.05rem] font-satoshiBold">{location || "Location"}</p>
+                <p className="mt-[1px] lg:mt-[7px] text-center text-primaryBlue sm:text-left text-[1.125rem] font-satoshiMedium">{location || "Location"}</p>
                 <p className="mt-[3px] lg:mt-[7px] max-h-[150px] font-erodeRegular ">{details || "Description"}</p>
                 <div className=" hidden sm:block absolute top-1 right-0 ">
                     <ButtonLink label={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />} href={linkTo} width="py-1 sm:py-2 px-4" />

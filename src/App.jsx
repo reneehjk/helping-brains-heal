@@ -7,21 +7,13 @@ import Donations from './pages/Donations';
 import News from './pages/News';
 import Opportunities from './pages/Opportunities';
 import Footer from './components/footer';
-
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div>
       <Router>
-        <nav className="bg-background p-4 space-x-4 fixed top-0 left-0 z-20 shadow-sm font-satoshiMedium w-full">
-          <a href="/" className="hover:underline">Home</a>
-          <a href="/about" className="hover:underline">About Us</a>
-          <a href="/donations" className="hover:underline">Donations</a>
-          <a href="/news" className="hover:underline">News</a>
-          <a href="/opportunities" className="hover:underline">Opportunities</a>
-          <a href="/clinic" className="hover:underline">Clinic</a>
-          <a href="/communities" className="hover:underline">Communities</a>
-        </nav>
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

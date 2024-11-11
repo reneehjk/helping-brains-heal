@@ -36,7 +36,7 @@ const Communities = () => {
             </header>
 
             <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
-                <div className="mb-[110px] flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
+                <div className="flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
                 {communities.map((community, index) => (
                         <InfoCard
                             key = {index}
