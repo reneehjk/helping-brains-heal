@@ -63,12 +63,12 @@ const Opportunities = () => {
         </div>
 
         <div className='flex flex-row gap-x-[60px] flex-wrap overflow-hidden sm:h-[640px] gap-y-[100px]'>
-            <div className=''>
+            <div>
                 <h1 className='text-center md:text-left text-[3rem] font-satoshiBold '>Concussion and Stroke</h1>
                 <h2 className='text-center md:text-left text-primaryBlue  text-[2.125rem] font-satoshiBold mt-[3px]'>What Should I Do Next?</h2>
                 <div className='mt-[35px] grid grid-rows-1 gap-[13px] max-w-[590px]'>
                     {remark.map((set, index) => (
-                        <div className='animate-appearSlowly'>
+                        <div>
                             <div className='font-satoshiBold text-[2 rem] block'>
                                 {set.main}
                             </div>
