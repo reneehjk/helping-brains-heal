@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
-import sanityClient from '../sanity/sanityClient'
+import sanityClient from '../sanity/sanityClient';
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
-import Button from '../components/Button'
+import Button from '../components/Button';
 
 const Home = () => {
-    const [teamMembers, setTeamMembers] = useState([])
+    const [teamMembers, setTeamMembers] = useState([]);
     const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
-    const [displayedCount, setDisplayedCount] = useState(0);
+    const [displayedCount, setDisplayedCount] = useState(0); // State for animated count display
+    const [displayedProgress, setDisplayedProgress] = useState(0); // State for animated progress bar
 
     useEffect(() => {
-        // team member collection
+        // Fetch team members
         sanityClient
             .fetch(
                 `*[_type == "teamMember"]{
@@ -21,12 +22,10 @@ const Home = () => {
                     link
                 }`
             )
-            .then((data) => {
-                setTeamMembers(data);
-                console.log(data)
-            })
+            .then((data) => setTeamMembers(data))
             .catch(console.error);
-        // boxes donated count
+
+        // Fetch boxes donated count
         sanityClient
             .fetch(
                 `*[_type == "boxesDonated"][0]{
@@ -41,32 +40,58 @@ const Home = () => {
             .catch(console.error);
     }, []);
 
-    // Animate displayed count
+    // Animate displayed count for the ticker effect
     useEffect(() => {
+        let start = 0;
         const duration = 1000; // animation duration in milliseconds
         const startTime = performance.now();
 
-        const easeOutQuad = (t) => t * (2 - t); // Easing function for a smooth ease-out effect
+        const easeOutQuad = (t) => t * (2 - t); // Easing function for smooth deceleration
 
-        const ticker = setInterval(() => {
+        const updateCount = () => {
             const elapsed = performance.now() - startTime;
             const progress = Math.min(elapsed / duration, 1); // Ensure progress does not exceed 1
-            // Apply easing function to progress
+
             const easedProgress = easeOutQuad(progress);
             const currentCount = Math.ceil(easedProgress * boxesDonatedCount);
+
             setDisplayedCount(currentCount);
 
-            // Stop the ticker when we've reached the target count
-            if (progress === 1) {
-                clearInterval(ticker);
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
             }
-        }, 16); // roughly 60 frames per second
+        };
 
-        return () => clearInterval(ticker); // Cleanup on unmount
+        requestAnimationFrame(updateCount);
+
     }, [boxesDonatedCount]);
 
-    // Calculate the progress as a percentage of 100 based on displayedCount
-    const progressPercentage = Math.min((displayedCount / 100) * 100, 100);
+    // Animate displayed progress for a smoother bar transition
+    useEffect(() => {
+        let start = displayedProgress;
+        const target = (boxesDonatedCount / 100) * 100;
+        const duration = 1200; // animation duration in milliseconds
+        const startTime = performance.now();
+
+        const easeOutQuad = (t) => t * (2 - t);
+
+        const updateProgress = () => {
+            const elapsed = performance.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            const easedProgress = easeOutQuad(progress);
+            const currentProgress = start + easedProgress * (target - start);
+
+            setDisplayedProgress(currentProgress);
+
+            if (progress < 1) {
+                requestAnimationFrame(updateProgress);
+            }
+        };
+
+        requestAnimationFrame(updateProgress);
+
+    }, [boxesDonatedCount]);
 
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
@@ -113,13 +138,13 @@ const Home = () => {
                     <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                         <div
                             className="bg-black h-2 rounded-full"
-                            style={{ width: `${progressPercentage}%` }}  // Update the width dynamically based on progress
+                            style={{ width: `${displayedProgress}%` }} // Use displayedProgress for a smoother animation
                         ></div>
                     </div>
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of delivering 100 care packages to clinics and organizations supporting ABI recovery.
                     </p>
-                    <Button variant="outline" disabled="true" to="" className='mt-5'>Donate (under construction)</Button>
+                    <Button variant="outline" disabled={true} className='mt-5'>Donate (under construction)</Button>
                 </div>
             </section>
 
@@ -144,7 +169,6 @@ const Home = () => {
                             link={member.link}
                         />
                     ))}
-
                 </div>
             </section>
         </div>
