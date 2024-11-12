@@ -46,8 +46,8 @@ const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     return (
         <>
-            <nav>
-                <div className=" px-5 md:px-10 bg-white shadow-sm fixed w-full z-20 p-4 flex justify-between items-center">
+            <nav className="bg-white shadow-sm fixed w-full z-20 p-4 bg-opacity-80 backdrop-blur-lg">
+                <div className="max-w-screen-2xl flex justify-between items-center px-1 md:px-4 mx-auto">
                     {/* logo */}
                     <div className="flex items-center gap-2">
                         <img src={logo} className="h-8" alt="Helping Brains Heal Logo" />
