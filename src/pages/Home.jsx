@@ -1,14 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import sanityClient from '../sanity/sanityClient';
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
 import Button from '../components/Button';
+import { motion, useMotionValue, useTransform, useInView } from 'framer-motion';
+import Ticker from '../components/Ticker';
+import ProgressBar from '../components/ProgressBar';
+
+const teamCardVariants = {
+    hidden: { opacity: 0 },
+    visible: (index) => ({
+        opacity: 1,
+        transition: {
+            delay: index * 0.1,
+            duration: 0.6,
+            ease: 'easeOut'
+        }
+    })
+};
 
 const Home = () => {
     const [teamMembers, setTeamMembers] = useState([]);
     const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
-    const [displayedCount, setDisplayedCount] = useState(0); // State for animated count display
-    const [displayedProgress, setDisplayedProgress] = useState(0); // State for animated progress bar
+    const [displayedProgress, setDisplayedProgress] = useState(0);
+
+    const scrollY = useMotionValue(0);
+    const orbLeftY = useTransform(scrollY, [0, 1000], [0, 200], { damping: 15, stiffness: 120 });
+    const orbRightY = useTransform(scrollY, [0, 1000], [0, -200], { damping: 15, stiffness: 120 });
+
+    // Create a ref for the team section
+    const teamSectionRef = useRef(null);
+    const isInView = useInView(teamSectionRef, { threshold: 0.1, triggerOnce: true });
+
+    useEffect(() => {
+        const handleScroll = () => {
+            scrollY.set(window.scrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [scrollY]);
 
     useEffect(() => {
         // Fetch team members
@@ -40,65 +71,20 @@ const Home = () => {
             .catch(console.error);
     }, []);
 
-    // Animate displayed count for the ticker effect
-    useEffect(() => {
-        let start = 0;
-        const duration = 1000; // animation duration in milliseconds
-        const startTime = performance.now();
-
-        const easeOutQuad = (t) => t * (2 - t); // Easing function for smooth deceleration
-
-        const updateCount = () => {
-            const elapsed = performance.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1); // Ensure progress does not exceed 1
-
-            const easedProgress = easeOutQuad(progress);
-            const currentCount = Math.ceil(easedProgress * boxesDonatedCount);
-
-            setDisplayedCount(currentCount);
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCount);
-            }
-        };
-
-        requestAnimationFrame(updateCount);
-
-    }, [boxesDonatedCount]);
-
-    // Animate displayed progress for a smoother bar transition
-    useEffect(() => {
-        let start = displayedProgress;
-        const target = (boxesDonatedCount / 100) * 100;
-        const duration = 1200; // animation duration in milliseconds
-        const startTime = performance.now();
-
-        const easeOutQuad = (t) => t * (2 - t);
-
-        const updateProgress = () => {
-            const elapsed = performance.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-
-            const easedProgress = easeOutQuad(progress);
-            const currentProgress = start + easedProgress * (target - start);
-
-            setDisplayedProgress(currentProgress);
-
-            if (progress < 1) {
-                requestAnimationFrame(updateProgress);
-            }
-        };
-
-        requestAnimationFrame(updateProgress);
-
-    }, [boxesDonatedCount]);
-
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
             <header className="py-10 relative">
                 {/* Left and Right Orbs */}
-                <div className="absolute bottom-0 -left-10 w-56 h-56 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"></div>
-                <div className="absolute bottom-0 right-0 w-56 h-56 bg-[#37CAEC] opacity-70 rounded-full blur-[120px] -z-10"></div>
+                <motion.div
+                    style={{ y: orbLeftY }}
+                    className="absolute bottom-0 -left-10 w-40 h-40 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"
+                    id="orbLeft"
+                ></motion.div>
+                <motion.div
+                    style={{ y: orbRightY }}
+                    className="absolute bottom-0 right-0 w-56 h-56 bg-[#37CAEC] opacity-70 rounded-full blur-[120px] -z-10"
+                    id="orbRight"
+                ></motion.div>
 
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
@@ -131,15 +117,8 @@ const Home = () => {
 
                 {/* Right Side: Goal Section */}
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs mx-auto py-10">
-                    <h4 className="text-xl font-satoshiBold mb-2">{displayedCount}/100 Care Packages</h4>
-
-                    {/* Progress Bar */}
-                    <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                        <div
-                            className="bg-black h-2 rounded-full"
-                            style={{ width: `${displayedProgress}%` }} // Use displayedProgress for a smoother animation
-                        ></div>
-                    </div>
+                    <h4 className="text-xl font-satoshiBold mb-2"><Ticker targetCount={boxesDonatedCount} />/100 Care Packages</h4>
+                    <ProgressBar progress={(boxesDonatedCount / 100) * 100} />
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of delivering 100 care packages to clinics and organizations supporting ABI recovery.
                     </p>
@@ -154,19 +133,26 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='py-20'>
+            <section ref={teamSectionRef} className='py-20'>
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}
                     {teamMembers.map((member, index) => (
-                        <TeamCard
+                        <motion.div
                             key={index}
-                            role={member.role}
-                            name={member.name}
-                            description={member.description}
-                            backgroundImage={member.backgroundImage}
-                            link={member.link}
-                        />
+                            variants={teamCardVariants}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            custom={index}
+                        >
+                            <TeamCard
+                                role={member.role}
+                                name={member.name}
+                                description={member.description}
+                                backgroundImage={member.backgroundImage}
+                                link={member.link}
+                            />
+                        </motion.div>
                     ))}
                 </div>
             </section>
