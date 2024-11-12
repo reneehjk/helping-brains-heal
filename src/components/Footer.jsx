@@ -11,7 +11,7 @@ function Footer() {
                         <div className="font-erodeRegular mb-1">
                             Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI)
                         </div>
-                        <div className="font-erodeRegular text-lightGrey mt-2 md:mt-0">@2024 Helping Brains Heal</div>
+                        <div className="font-erodeRegular text-black opacity-40 mt-2 md:mt-0">@2024 Helping Brains Heal</div>
                     </div>
 
                     {/* Center Section */}
