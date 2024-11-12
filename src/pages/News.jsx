@@ -3,6 +3,7 @@ import sanityClient from '../sanity/sanityClient';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { motion } from 'framer-motion';
 
 function News() {
     const [loading, setLoading] = useState(true);
@@ -33,22 +34,28 @@ function News() {
                 <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl lg:pb-16 pb-14 pt-20">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
                     {loading ? (
-                        <div className="flex-1">
+                        <div className="w-full">
                             <Skeleton height={250} width="100%" />
                             <Skeleton height={20} width="60%" className="mt-4" />
                             <Skeleton height={15} width="80%" className="mt-2" />
                             <Skeleton height={15} width="50%" className="mt-2" />
                         </div>
                     ) : (
-                        // Render NewsItems once loaded
-                        newsItems.map((news) => (
-                            <NewsItem
+                        // Animate each NewsItem with staggered effect
+                        newsItems.map((news, index) => (
+                            <motion.div
                                 key={news._id}
-                                Source={news.source}
-                                Title={news.title}
-                                Description={news.description}
-                                Link={news.link}
-                            />
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: index * 0.1, duration: 0.4 }}
+                            >
+                                <NewsItem
+                                    Source={news.source}
+                                    Title={news.title}
+                                    Description={news.description}
+                                    Link={news.link}
+                                />
+                            </motion.div>
                         ))
                     )}
                 </div>
