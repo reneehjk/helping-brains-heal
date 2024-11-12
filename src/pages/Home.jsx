@@ -118,21 +118,20 @@ const Home = () => {
                     </div>
                 </div>
             </header>
-            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-10">
+            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-20">
                 {/* Left Side: Mission Text */}
                 <div>
                     <h3 className="text-2xl font-satoshiBold mb-4">
                         Our mission is to enhance recovery and accessibility for individuals enduring symptoms of brain injuries.
                     </h3>
-                    <p className="font-erodeRegular text-gray-600">
+                    <p className="font-erodeRegular text-gray-900">
                         We strive to improve access to rehabilitation resources by distributing care packages, participating in clinical research, and providing free treatments through community outreach. Our goal is to make a tangible impact on the recovery process for those affected by acquired brain injuries.
                     </p>
                 </div>
 
                 {/* Right Side: Goal Section */}
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs mx-auto py-10">
-                    <h4 className="text-lg font-satoshiBold mb-2">Goal: 100 Care Packages</h4>
-                    <p className="text-md font-satoshiBold mb-2 opacity-50">{displayedCount}/100</p>
+                    <h4 className="text-xl font-satoshiBold mb-2">{displayedCount}/100 Care Packages</h4>
 
                     {/* Progress Bar */}
                     <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
@@ -148,14 +147,14 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="py-10">
+            <section className="py-20">
                 <h2 className="text-3xl font-satoshiBold mb-6">Pamphlet</h2>
                 <div className="bg-gray-200 aspect-w-16 aspect-h-9 w-full max-w-3xl flex items-center justify-center rounded-lg shadow-md">
                     <p className="text-gray-500">Placeholder</p>
                 </div>
             </section>
 
-            <section className='py-10'>
+            <section className='py-20'>
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}

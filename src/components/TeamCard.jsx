@@ -14,7 +14,7 @@ const TeamCard = ({ role, name, description, backgroundImage, link }) => {
                 </div>
 
                 {/* Name and description below the image */}
-                <div className="p-4 text-left h-32">
+                <div className="p-4 text-left md:h-32">
                     <h4 className="text-lg font-semibold font-satoshiBold">{name}</h4>
                     <p className="text-sm font-erodeRegular">{description}</p>
                 </div>
