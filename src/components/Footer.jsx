@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function Footer() {
     return (
         <div className="bg-background  border-t-2 border-x-0">
-            <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-20">
+            <div className="mx-auto w-full max-w-screen-2xl px-5 md:px-10 py-20">
                 <div className="flex flex-col md:flex-row md:space-x-20 lg:space-x-44">
                     {/* Left Section */}
                     <div className="md:w-1/3 mb-6 md:mb-0">
