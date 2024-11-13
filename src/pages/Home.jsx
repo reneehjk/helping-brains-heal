@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import sanityClient from '../sanity/sanityClient';
+import { useQuery } from '@tanstack/react-query';
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
 import Button from '../components/Button';
@@ -19,10 +20,37 @@ const teamCardVariants = {
     })
 };
 
+const fetchTeamMembers = async () => {
+    const data = await sanityClient.fetch(
+        `*[_type == "teamMember"]{
+            role,
+            name,
+            description,
+            "backgroundImage": backgroundImage.asset->url,
+            link
+        }`
+    );
+    return data;
+};
+
+const fetchBoxesDonated = async () => {
+    const data = await sanityClient.fetch(
+        `*[_type == "boxesDonated"][0]{count}`
+    );
+    return data.count || 0;
+};
+
 const Home = () => {
-    const [teamMembers, setTeamMembers] = useState([]);
-    const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
-    const [displayedProgress, setDisplayedProgress] = useState(0);
+    const { data: teamMembers = [] } = useQuery({
+        queryKey: ['teamMembers'],
+        queryFn: fetchTeamMembers,
+        staleTime: 1000 * 60 * 5, // cache data for 5 minutes
+    });
+
+    const { data: boxesDonatedCount = 0 } = useQuery({
+        queryKey: ['boxesDonated'],
+        queryFn: fetchBoxesDonated,
+    });
 
     const scrollY = useMotionValue(0);
     const orbLeftY = useTransform(scrollY, [0, 1000], [0, 200], { damping: 15, stiffness: 120 });
@@ -40,36 +68,6 @@ const Home = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
-
-    useEffect(() => {
-        // Fetch team members
-        sanityClient
-            .fetch(
-                `*[_type == "teamMember"]{
-                    role,
-                    name,
-                    description,
-                    "backgroundImage": backgroundImage.asset->url,
-                    link
-                }`
-            )
-            .then((data) => setTeamMembers(data))
-            .catch(console.error);
-
-        // Fetch boxes donated count
-        sanityClient
-            .fetch(
-                `*[_type == "boxesDonated"][0]{
-                    count
-                }`
-            )
-            .then((data) => {
-                if (data && data.count) {
-                    setBoxesDonatedCount(data.count);
-                }
-            })
-            .catch(console.error);
-    }, []);
 
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import About from './pages/About';
 import Clinic from './pages/Clinic';
@@ -9,11 +10,13 @@ import Opportunities from './pages/Opportunities';
 import Footer from './components/footer';
 import Navbar from './components/Navbar';
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Router>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -25,7 +28,7 @@ function App() {
         </Routes>
       </Router>
       <Footer />
-    </div>
+    </QueryClientProvider>
   );
 }
 
