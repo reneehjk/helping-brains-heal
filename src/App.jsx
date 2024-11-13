@@ -9,6 +9,7 @@ import News from './pages/News';
 import Opportunities from './pages/Opportunities';
 import Footer from './components/footer';
 import Navbar from './components/Navbar';
+import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,8 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/news" element={<News />} />
           <Route path="/opportunities" element={<Opportunities />} />
+          {/* Catch-all route for undefined paths */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
       <Footer />
