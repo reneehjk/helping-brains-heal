@@ -59,7 +59,7 @@ function News() {
                         ))
                     )}
                 </div>
-                <div className="flex justify-center pt-24">
+                <div className="flex justify-center py-24">
                     <div className="font-satoshiMedium lg:text-2xl md:text-xl text-lg text-center">Stay tuned for more updates, stories and highlights featuring Helping Brains Heal.</div>
                 </div>
             </div>

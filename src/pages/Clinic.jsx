@@ -27,7 +27,7 @@ const Clinic = () => {
             <header className="relative w-full h-32 sm:h-48 md:h-60 bg-cover bg-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/40">
                     <div className="absolute inset-0 flex items-end">
-                        <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-6 font-satoshiBold text-5xl ">
+                        <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-6 font-satoshiBold text-5xl">
                             Clinic Opportunitites
                         </div>
                     </div>

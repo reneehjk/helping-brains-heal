@@ -7,6 +7,13 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '320px',
+        sm: '640px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px',
+      },
       colors: {
         fontBlack: '#121212',  // font color black
         primaryBlue: '#125488',  // primary dark blue
