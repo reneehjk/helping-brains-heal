@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import About from './pages/About';
 import Clinic from './pages/Clinic';
@@ -8,12 +9,15 @@ import News from './pages/News';
 import Opportunities from './pages/Opportunities';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import NotFound from './pages/NotFound';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div classname="select-none">
+    <QueryClientProvider client={queryClient}>
       <Router>
-        <Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -22,10 +26,12 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/news" element={<News />} />
           <Route path="/opportunities" element={<Opportunities />} />
+          {/* Catch-all route for undefined paths */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
       <Footer />
-    </div>
+    </QueryClientProvider>
   );
 }
 

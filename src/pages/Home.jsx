@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import sanityClient from '../sanity/sanityClient';
+import { useQuery } from '@tanstack/react-query';
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
 import Button from '../components/Button';
@@ -19,10 +20,37 @@ const teamCardVariants = {
     })
 };
 
+const fetchTeamMembers = async () => {
+    const data = await sanityClient.fetch(
+        `*[_type == "teamMember"]{
+            role,
+            name,
+            description,
+            "backgroundImage": backgroundImage.asset->url,
+            link
+        }`
+    );
+    return data;
+};
+
+const fetchBoxesDonated = async () => {
+    const data = await sanityClient.fetch(
+        `*[_type == "boxesDonated"][0]{count}`
+    );
+    return data.count || 0;
+};
+
 const Home = () => {
-    const [teamMembers, setTeamMembers] = useState([]);
-    const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
-    const [displayedProgress, setDisplayedProgress] = useState(0);
+    const { data: teamMembers = [] } = useQuery({
+        queryKey: ['teamMembers'],
+        queryFn: fetchTeamMembers,
+        staleTime: 1000 * 60 * 5, // cache data for 5 minutes
+    });
+
+    const { data: boxesDonatedCount = 0 } = useQuery({
+        queryKey: ['boxesDonated'],
+        queryFn: fetchBoxesDonated,
+    });
 
     const scrollY = useMotionValue(0);
     const orbLeftY = useTransform(scrollY, [0, 1000], [0, 200], { damping: 15, stiffness: 120 });
@@ -41,38 +69,8 @@ const Home = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
 
-    useEffect(() => {
-        // Fetch team members
-        sanityClient
-            .fetch(
-                `*[_type == "teamMember"]{
-                    role,
-                    name,
-                    description,
-                    "backgroundImage": backgroundImage.asset->url,
-                    link
-                }`
-            )
-            .then((data) => setTeamMembers(data))
-            .catch(console.error);
-
-        // Fetch boxes donated count
-        sanityClient
-            .fetch(
-                `*[_type == "boxesDonated"][0]{
-                    count
-                }`
-            )
-            .then((data) => {
-                if (data && data.count) {
-                    setBoxesDonatedCount(data.count);
-                }
-            })
-            .catch(console.error);
-    }, []);
-
     return (
-        <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20 select-none'>
+        <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
             <header className="py-10 relative">
                 {/* Left and Right Orbs */}
                 <motion.div
@@ -86,13 +84,13 @@ const Home = () => {
                     id="orbRight"
                 ></motion.div>
 
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
+                <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight xs:mt-16 font-satoshiBold pt-20 md:pt-0">
+                        <h1 className="text-4xl font-bold leading-tight pt-20 md:pt-0">
                             Helping Brains Heal
                         </h1>
-                        <p className="mt-4 text-lg text-gray-900 max-w-md font-erodeRegular">
+                        <p className="mt-4 text-lg text-gray-900 ">
                             Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
                         </p>
                         <Button to="/about" className='mt-5'>About us</Button>
@@ -104,6 +102,7 @@ const Home = () => {
                     </div>
                 </div>
             </header>
+
             <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-20">
                 {/* Left Side: Mission Text */}
                 <div>
