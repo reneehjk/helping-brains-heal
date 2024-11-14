@@ -22,7 +22,7 @@ export const NavBarMenu = [
     },
     {
         id: 4,
-        title: "Oppurtunities",
+        title: "Opportunities",
         link: "/opportunities",
     },
     {
