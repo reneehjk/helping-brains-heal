@@ -72,7 +72,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
+        <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20 select-none'>
             <header className="py-10 relative">
                 {/* Left and Right Orbs */}
                 <motion.div
