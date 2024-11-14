@@ -63,7 +63,7 @@ const Opportunities = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
 
-    return <div className="realtive w-full max-w-7xl px-5 py-20 md:px-10 ">
+    return <div className="realtive mx-auto w-full max-w-7xl px-5 py-20 md:px-10 ">
         <h1 className="text-center md:text-left text-[3rem] font-satoshiBold pt-20">Treatment Opportunities</h1>
         <div className="absolute top-0 right-0 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
         <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>

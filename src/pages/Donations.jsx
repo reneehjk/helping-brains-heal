@@ -21,7 +21,7 @@ const Donations = () => {
         console.log(donations)
     }, []);
 
-    return <div className="realtive w-full max-w-7xl px-5 py-10 md:px-10 md:py-20">
+    return <div className="realtive w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
         <div className="absolute top-1/2 left-1/4 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
         <div className="absolute top-1/2 left-1/5 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
 
