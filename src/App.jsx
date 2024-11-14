@@ -6,12 +6,12 @@ import Communities from './pages/Communities';
 import Donations from './pages/Donations';
 import News from './pages/News';
 import Opportunities from './pages/Opportunities';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
+    <div classname="select-none">
       <Router>
         <Navbar/>
         <Routes>
