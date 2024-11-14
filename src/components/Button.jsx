@@ -19,7 +19,7 @@ const Button = ({
     const variantClasses = {
         primary: "bg-black text-white hover:bg-opacity-80 hover:text-white",
         secondary: "bg-gray-600 text-white hover:bg-gray-700 hover:text-white",
-        outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
+        outline: "bg-none border border-blue-600 text-blue-600 hover:bg-blue-50",
     };
 
     const buttonClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${disabled ? "cursor-not-allowed" : "hover:shadow-lg hover:shadow-[#37CAEC]/50"
