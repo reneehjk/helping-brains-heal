@@ -4,7 +4,7 @@ import ButtonLink from "./ButtonLink";
 
 const InfoCard = ({ name, location, details, imageSrc, linkTo }) => {
     return (
-        <div className="group relative rounded-xl overflow-hidden min-w-[240px] max-w-[240px] h-[345px] sm:max-w-[345px] sm:h-[360px] lg:w-full lg:h-[387px] hover:shadow-md duration-300">
+        <div className="group relative rounded-xl overflow-hidden min-w-[240px] w-full pb-5 sm:max-w-[345px] sm:h-[360px] lg:w-full lg:h-[387px] shadow-md md:shadow-none hover:shadow-md duration-300">
             <div className="h-[98px] sm:h-[125px] lg:h-[155px] overflow-hidden">
                 {(!imageSrc && <div className='bg-blue-300 w-full h-full'></div>)||(imageSrc && (<img src={imageSrc} alt={name} className="w-auto object-cover" />))}
             </div>
