@@ -1,43 +1,48 @@
-import { useEffect, useState } from 'react';
-import sanityClient from '../sanity/sanityClient'
+import { useEffect, useState, useRef } from 'react';
+import sanityClient from '../sanity/sanityClient';
 import TeamCard from '../components/TeamCard';
 import heartBrainVoxel from '../assets/heart-brain-voxel.gif';
+import Button from '../components/Button';
+import { motion, useMotionValue, useTransform, useInView } from 'framer-motion';
+import Ticker from '../components/Ticker';
+import ProgressBar from '../components/ProgressBar';
 
-const team = [
-    {
-        role: 'Director',
-        name: 'Jane Doe',
-        description: 'Please add your content here. Keep it short and simple. And smile :) ',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/jane-doe'
-    },
-    {
-        role: 'Developer',
-        name: 'John Smith',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/john-smith'
-    },
-    {
-        role: 'Developer',
-        name: 'Emily Davis',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/emily-davis'
-    },
-    {
-        role: 'Developer',
-        name: 'Michael Brown',
-        description: 'Please add your content here. Keep it short and simple. And smile :)',
-        backgroundImage: heartBrainVoxel,
-        link: 'https://example.com/michael-brown'
-    },
-];
+const teamCardVariants = {
+    hidden: { opacity: 0 },
+    visible: (index) => ({
+        opacity: 1,
+        transition: {
+            delay: index * 0.1,
+            duration: 0.6,
+            ease: 'easeOut'
+        }
+    })
+};
 
 const Home = () => {
-    const [teamMembers, setTeamMembers] = useState([])
+    const [teamMembers, setTeamMembers] = useState([]);
+    const [boxesDonatedCount, setBoxesDonatedCount] = useState(0);
+    const [displayedProgress, setDisplayedProgress] = useState(0);
+
+    const scrollY = useMotionValue(0);
+    const orbLeftY = useTransform(scrollY, [0, 1000], [0, 200], { damping: 15, stiffness: 120 });
+    const orbRightY = useTransform(scrollY, [0, 1000], [0, -200], { damping: 15, stiffness: 120 });
+
+    // Create a ref for the team section
+    const teamSectionRef = useRef(null);
+    const isInView = useInView(teamSectionRef, { threshold: 0.1, triggerOnce: true });
 
     useEffect(() => {
+        const handleScroll = () => {
+            scrollY.set(window.scrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [scrollY]);
+
+    useEffect(() => {
+        // Fetch team members
         sanityClient
             .fetch(
                 `*[_type == "teamMember"]{
@@ -51,28 +56,46 @@ const Home = () => {
             .then((data) => setTeamMembers(data))
             .catch(console.error);
 
-        console.log(teamMembers)
+        // Fetch boxes donated count
+        sanityClient
+            .fetch(
+                `*[_type == "boxesDonated"][0]{
+                    count
+                }`
+            )
+            .then((data) => {
+                if (data && data.count) {
+                    setBoxesDonatedCount(data.count);
+                }
+            })
+            .catch(console.error);
     }, []);
 
     return (
         <div className='mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20'>
             <header className="py-10 relative">
                 {/* Left and Right Orbs */}
-                <div className="absolute bottom-0 -left-10 w-56 h-56 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"></div>
-                <div className="absolute bottom-0 right-0 w-56 h-56 bg-[#37CAEC] opacity-70 rounded-full blur-[120px] -z-10"></div>
+                <motion.div
+                    style={{ y: orbLeftY }}
+                    className="absolute bottom-0 -left-10 w-40 h-40 bg-[#1689FE] opacity-35 rounded-full blur-[120px] -z-10"
+                    id="orbLeft"
+                ></motion.div>
+                <motion.div
+                    style={{ y: orbRightY }}
+                    className="absolute bottom-0 right-0 w-56 h-56 bg-[#37CAEC] opacity-70 rounded-full blur-[120px] -z-10"
+                    id="orbRight"
+                ></motion.div>
 
                 <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight xs:mt-16 font-satoshiBold">
+                        <h1 className="text-4xl font-bold leading-tight xs:mt-16 font-satoshiBold pt-20 md:pt-0">
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 max-w-md font-erodeRegular">
                             Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
                         </p>
-                        <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">
-                            Learn More
-                        </a>
+                        <Button to="/about" className='mt-5'>About us</Button>
                     </div>
 
                     {/* Hero Image */}
@@ -81,61 +104,56 @@ const Home = () => {
                     </div>
                 </div>
             </header>
-            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-10">
+            <section className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 h-max py-20">
                 {/* Left Side: Mission Text */}
                 <div>
                     <h3 className="text-2xl font-satoshiBold mb-4">
                         Our mission is to enhance recovery and accessibility for individuals enduring symptoms of brain injuries.
                     </h3>
-                    <p className="font-erodeRegular text-gray-600">
+                    <p className="font-erodeRegular text-gray-900">
                         We strive to improve access to rehabilitation resources by distributing care packages, participating in clinical research, and providing free treatments through community outreach. Our goal is to make a tangible impact on the recovery process for those affected by acquired brain injuries.
                     </p>
                 </div>
 
                 {/* Right Side: Goal Section */}
                 <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs mx-auto py-10">
-                    <h4 className="text-lg font-satoshiBold mb-2">Goal: 100 Care Packages</h4>
-                    <p className="text-md font-satoshiBold mb-2 opacity-50">95/100</p>
-
-                    {/* Progress Bar */}
-                    <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                        <div
-                            className="bg-black h-2 rounded-full"
-                            style={{ width: "95%" }}  // Update the width dynamically based on progress
-                        ></div>
-                    </div>
-
+                    <h4 className="text-xl font-satoshiBold mb-2"><Ticker targetCount={boxesDonatedCount} />/100 Care Packages</h4>
+                    <ProgressBar progress={(boxesDonatedCount / 100) * 100} />
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of delivering 100 care packages to clinics and organizations supporting ABI recovery.
                     </p>
-                    <a className="mt-6 font-satoshiBold bg-gray-900 text-white py-2 px-4 rounded-full transition-all duration-200 inline-block">
-                        Donate
-                    </a>
+                    <Button variant="outline" disabled={true} className='mt-5'>Donate (under construction)</Button>
                 </div>
             </section>
 
-            <section className="py-10">
+            <section className="py-20">
                 <h2 className="text-3xl font-satoshiBold mb-6">Pamphlet</h2>
                 <div className="bg-gray-200 aspect-w-16 aspect-h-9 w-full max-w-3xl flex items-center justify-center rounded-lg shadow-md">
                     <p className="text-gray-500">Placeholder</p>
                 </div>
             </section>
 
-            <section className='py-10'>
+            <section ref={teamSectionRef} className='py-20'>
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}
                     {teamMembers.map((member, index) => (
-                        <TeamCard
+                        <motion.div
                             key={index}
-                            role={member.role}
-                            name={member.name}
-                            description={member.description}
-                            backgroundImage={member.backgroundImage}
-                            link={member.link}
-                        />
+                            variants={teamCardVariants}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            custom={index}
+                        >
+                            <TeamCard
+                                role={member.role}
+                                name={member.name}
+                                description={member.description}
+                                backgroundImage={member.backgroundImage}
+                                link={member.link}
+                            />
+                        </motion.div>
                     ))}
-
                 </div>
             </section>
         </div>
