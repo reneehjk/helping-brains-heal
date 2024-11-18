@@ -24,7 +24,7 @@ const Communities = () => {
     }, []);
 
     return (
-        <div className="bg-background">
+        <div className="bg-background select-none">
             <header className="relative w-full h-32 sm:h-48 md:h-60 bg-cover bg-center">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/40">
                     <div className="absolute inset-0 flex items-end">
