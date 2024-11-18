@@ -16,24 +16,24 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <div classname="select-none">
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/clinic" element={<Clinic />} />
-          <Route path="/communities" element={<Communities />} />
-          <Route path="/donations" element={<Donations />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/opportunities" element={<Opportunities />} />
-          {/* Catch-all route for undefined paths */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-      <Footer />
-    </QueryClientProvider>
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/clinic" element={<Clinic />} />
+            <Route path="/communities" element={<Communities />} />
+            <Route path="/donations" element={<Donations />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/opportunities" element={<Opportunities />} />
+            {/* Catch-all route for undefined paths */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+        <Footer />
+      </QueryClientProvider>
+    </div>
   );
 }
 
