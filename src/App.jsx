@@ -15,6 +15,7 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
+    <div classname="select-none">
     <QueryClientProvider client={queryClient}>
       <Router>
         <Navbar />
@@ -32,6 +33,7 @@ function App() {
       </Router>
       <Footer />
     </QueryClientProvider>
+      </div>
   );
 }
 
