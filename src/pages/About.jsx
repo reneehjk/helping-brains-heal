@@ -2,32 +2,29 @@ import logo from "../assets/helpingBrainsHeal.svg";
 import NewsItem from "../components/NewsItemsAbout";
 import sanityClient from '../sanity/sanityClient';
 import Skeleton from 'react-loading-skeleton';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useQuery } from "@tanstack/react-query";
+
+const fetchNews = async () => {
+    const data = await sanityClient.fetch(
+        `*[_type == "newsItem"]{
+            _id,
+            source,
+            title,
+            description,
+            link
+        }`
+    )
+    return data;
+}
 
 function About() {
-    const [loading, setLoading] = useState(true);
-    const [newsItems, setNewsItems] = useState([]);
-
-    useEffect(() => {
-        //fetch news items from sanity
-        sanityClient
-            .fetch(
-                `*[_type == "newsItem"]{
-                    _id,
-                    source,
-                    title,
-                    description,
-                    link
-                }`
-            )
-            .then((data) => {
-                setNewsItems(data);
-                setLoading(false);
-            })
-            .catch(console.error)
-    }, [])
+    const { data: newsItems = [], isLoading } = useQuery({
+        queryKey: ['newsItems'],
+        queryFn: fetchNews,
+        staleTime: 100 * 60 * 5,
+    })
 
     return (
         <div className="bg-background text-fontBlack">
@@ -57,7 +54,7 @@ function About() {
                         incididunt ut labore et dolore magna aliqua.
                     </div>
                 </div>
-                
+
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Gallery</div>
 
                 <div className="flex flex-row flex-wrap justify-between lg:pb-24">
@@ -71,7 +68,7 @@ function About() {
 
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
-                    {loading ? (
+                    {isLoading ? (
                         <div className="w-full">
                             <Skeleton height={250} width="100%" />
                             <Skeleton height={20} width="60%" className="mt-4" />
