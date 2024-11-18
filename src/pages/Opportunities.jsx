@@ -91,28 +91,28 @@ const Opportunities = () => {
         </div>
 
         {/* <div className='flex flex-row gap-x-[60px] flex-wrap overflow-hidden sm:h-[640px] gap-y-[100px]'> */}
-            <section ref={remarkSectionRef}>
-                <h1 className='text-center text-[3rem] font-satoshiBold '>Concussion and Stroke</h1>
-                <h2 className='text-center text-primaryBlue  text-[2.125rem] font-satoshiBold mt-[3px]'>What Should I Do Next?</h2>
-                <div className='mt-20 grid grid-row-2 gap-4'>
-                    {remark.map((set, index) => (
-                        <motion.div
-                            key={index}
-                            variants={remarkCardVariants}
-                            initial="hidden"
-                            animate={isInView ? "visible" : "hidden"}
-                            custom={index}
-                        >
-                            <div className='font-satoshiBold text-[2 rem] sm:text-center'>
-                                {set.main}
-                            </div>
-                            <div className='font-erodeRegular sm:text-center'>
-                                {set.description}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
+        <section ref={remarkSectionRef}>
+            <h1 className='text-center text-[3rem] font-satoshiBold '>Concussion and Stroke</h1>
+            <h2 className='text-center text-primaryBlue  text-[2.125rem] font-satoshiBold mt-[3px]'>What Should I Do Next?</h2>
+            <div className='mt-20 grid grid-row-2 gap-4'>
+                {remark.map((set, index) => (
+                    <motion.div
+                        key={index}
+                        variants={remarkCardVariants}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        custom={index}
+                    >
+                        <div className='font-satoshiBold text-[2 rem] sm:text-center'>
+                            {set.main}
+                        </div>
+                        <div className='font-erodeRegular sm:text-center'>
+                            {set.description}
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </section>
         {/* </div> */}
     </div>
 }

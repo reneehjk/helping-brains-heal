@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import DonationCard from "../components/donationCard";
 import sanityClient from '../sanity/sanityClient'
 import Skeleton from 'react-loading-skeleton';
+import { motion } from 'framer-motion';
 
 const fetchDonations = async () => {
     const data = await sanityClient.fetch(
@@ -44,12 +45,19 @@ const Donations = () => {
                 ) : (
                     donationItems.map((donation, index) => (
                         <div className="" key={index}>
-                            <DonationCard
-                                name={donation.name}
-                                details={donation.description}
-                                imageSrc={donation.image}
-                                linkTo={donation.link}
-                            />
+                            <motion.div
+                                key={donation._id}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: index * 0.1, duration: 0.4 }}
+                            >
+                                <DonationCard
+                                    name={donation.name}
+                                    details={donation.description}
+                                    imageSrc={donation.image}
+                                    linkTo={donation.link}
+                                />
+                            </motion.div>
                         </div>
                     ))
                 )}
