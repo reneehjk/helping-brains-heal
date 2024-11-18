@@ -45,8 +45,8 @@ export const NavBarMenu = [
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     return (
-        <>
-            <nav className="bg-white shadow-sm fixed w-full z-20 p-4 bg-opacity-80 backdrop-blur-lg">
+        <div className="z-3 relative">
+            <nav className="bg-white shadow-sm fixed w-full z-20 p-4 bg-opacity-80 backdrop-blur-lg select-none">
                 <div className="max-w-screen-2xl flex justify-between items-center px-1 md:px-4 mx-auto">
                     {/* logo */}
                     <div className="flex items-center gap-2">
@@ -76,19 +76,9 @@ const Navbar = () => {
             </nav>
 
             {/* mobile Sidebar */}
-            <ResponsiveMenu open={open} />
-        </>
+            <ResponsiveMenu open={open} setOpen={setOpen} />
+        </div>
     );
 };
 
-{/* <a href="/" className="hover:underline">Home</a>
-        <a href="/about" className="hover:underline">About Us</a>
-        <a href="/donations" className="hover:underline">Donations</a>
-        <a href="/news" className="hover:underline">News</a>
-        <a href="/opportunities" className="hover:underline">Opportunities</a>
-        <a href="/clinic" className="hover:underline">Clinic</a>
-        <a href="/communities" className="hover:underline">Communities</a> */}
-
-// <div className="bg-background p-4 space-x-4 fixed top-0 left-0 z-20 shadow-sm font-satoshiMedium w-full">
-
-export default Navbar
+export default Navbar;
