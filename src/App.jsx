@@ -15,7 +15,7 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div classname="select-none">
+    <div className="select-none">
       <QueryClientProvider client={queryClient}>
         <Router>
           <Navbar />
