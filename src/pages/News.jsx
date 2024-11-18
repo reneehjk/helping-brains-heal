@@ -29,7 +29,7 @@ function News() {
     }, [])
 
     return (
-        <div className="bg-background">
+        <div className="bg-background select-none">
             <div className="min-h-screen  justify-start space-y-6 select-none mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
                 <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl lg:pb-16 pb-14 pt-20">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
