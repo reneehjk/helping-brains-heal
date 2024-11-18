@@ -5,6 +5,7 @@ import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet";
 
 const fetchNews = async () => {
     const data = await sanityClient.fetch(
@@ -28,6 +29,9 @@ function About() {
 
     return (
         <div className="bg-background text-fontBlack">
+            <Helmet>
+                <title>About - Helping Brains Heal</title>
+            </Helmet>
             <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 select-none mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
                 <div className="flex items-end lg:space-x-12 space-x-3 lg:pb-24 md:mt-20 sm:mt-24 xs:mt-28">
                     <img src={logo} className="lg:w-20 lg:h-20 w-10 h-10 self-center" alt="Helping Brains Heal Logo" />

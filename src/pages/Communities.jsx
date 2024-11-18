@@ -3,6 +3,7 @@ import InfoCard from "../components/informationCard";
 import { useQuery } from "@tanstack/react-query";
 import Skeleton from 'react-loading-skeleton';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 const fetchCommunities = async () => {
     const data = await sanityClient.fetch(
@@ -26,6 +27,9 @@ const Communities = () => {
 
     return (
         <div className="bg-background pt-20 sm:py-10 md:py-0 select-none">
+            <Helmet>
+                <title>Communities - Helping Brains Heal</title>
+            </Helmet>
             <header className="relative mx-auto w-full h-32 sm:h-48 md:h-60 bg-cover bg-center ">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/40">
                     <div className="absolute inset-0 flex items-end">
