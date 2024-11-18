@@ -12,7 +12,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10"
-                        onClick={() => setOpen(false)} // Close menu when overlay is clicked
+                        onClick={() => setOpen(false)} 
                     />
 
                     {/* Dropdown Menu */}
