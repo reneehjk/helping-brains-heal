@@ -49,11 +49,13 @@ const Navbar = () => {
             <nav className="bg-white shadow-sm fixed w-full z-20 p-4 bg-opacity-80 backdrop-blur-lg select-none">
                 <div className="max-w-screen-2xl flex justify-between items-center px-1 md:px-4 mx-auto">
                     {/* logo */}
-                    <div className="flex items-center gap-2">
-                        <img src={logo} className="h-8" alt="Helping Brains Heal Logo" />
-                        <p className="md:hidden font-satoshiBold text-fontBlack">Helping Brains Heal</p>
-                        <p className="hidden md:block font-satoshiBold text-fontBlack">HBH</p>
-                    </div>
+                    <a href="/">
+                        <div className="flex items-center gap-2">
+                            <img src={logo} className="h-8" alt="Helping Brains Heal Logo" />
+                            <p className="md:hidden font-satoshiBold text-fontBlack">Helping Brains Heal</p>
+                            <p className="hidden md:block font-satoshiBold text-fontBlack">HBH</p>
+                        </div>
+                    </a>
                     {/* Menu */}
                     <div className="hidden md:block">
                         <ul className="flex items-center gap-6 font-satoshiMedium text-primaryBlue">
