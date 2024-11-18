@@ -24,8 +24,8 @@ const Communities = () => {
     }, []);
 
     return (
-        <div className="bg-background select-none">
-            <header className="relative w-full h-32 sm:h-48 md:h-60 bg-cover bg-center">
+        <div className="bg-background pt-20 sm:py-10 md:py-0 select-none">
+            <header className="relative mx-auto w-full h-32 sm:h-48 md:h-60 bg-cover bg-center ">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/40">
                     <div className="absolute inset-0 flex items-end">
                         <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-6 font-satoshiBold text-5xl">
@@ -37,9 +37,9 @@ const Communities = () => {
 
             <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
                 <div className="flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
-                {communities.map((community, index) => (
+                    {communities.map((community, index) => (
                         <InfoCard
-                            key = {index}
+                            key={index}
                             name={community.name}
                             location={community.location}
                             details={community.description}
