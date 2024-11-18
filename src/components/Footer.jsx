@@ -17,9 +17,11 @@ function Footer() {
                     </div>
                     <div className="flex flex-col font-satoshiMedium text-fontBlack xl:text-lg lg:text-lg md:text-sm text-sm">
                         <div className="font-satoshiBold xl:text-xl lg:text-xl md:text-lg text-lg text-primaryBlue mb-1">Contact us</div>
+                        <div className="flex flex-col xl:text-left lg:text-left md:text-left text-right">
                         <a href="mailto:reneehjkim11@gmail.com" className="hover:underline">Email</a>
                         <a href="https://www.linkedin.com/in/reneehjkim" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
                         <a href="https://github.com/reneehjk" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a>
+                        </div>
                     </div>
                 </div>
             </div>
