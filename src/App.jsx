@@ -10,28 +10,31 @@ import Opportunities from './pages/Opportunities';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import NotFound from './pages/NotFound';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="select-none">
+    <div className="">
       <QueryClientProvider client={queryClient}>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/clinic" element={<Clinic />} />
-            <Route path="/communities" element={<Communities />} />
-            <Route path="/donations" element={<Donations />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/opportunities" element={<Opportunities />} />
-            {/* Catch-all route for undefined paths */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-        <Footer />
+        <HelmetProvider>
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/clinic" element={<Clinic />} />
+              <Route path="/communities" element={<Communities />} />
+              <Route path="/donations" element={<Donations />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/opportunities" element={<Opportunities />} />
+              {/* Catch-all route for undefined paths */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Router>
+          <Footer />
+        </HelmetProvider>
       </QueryClientProvider>
     </div>
   );

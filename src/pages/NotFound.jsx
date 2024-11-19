@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const NotFound = () => {
     return (
-        <div className='h-screen text-center flex flex-col justify-center select-none'>
+        <div className='h-screen text-center flex flex-col justify-center'>
             <Helmet>
                 <title>404 - Helping Brains Heal</title>
             </Helmet>

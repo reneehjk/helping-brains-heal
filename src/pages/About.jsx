@@ -5,7 +5,23 @@ import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useQuery } from "@tanstack/react-query";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
+import "react-image-gallery/styles/css/image-gallery.css";
+import ReactImageGallery from "react-image-gallery";
+
+
+const fetchGalleryImages = async () => {
+    const data = await sanityClient.fetch(`
+        *[_type == "gallery"]{
+            _id,
+            "imageUrl": image.asset->url,
+        }
+    `);
+    return data.map(item => ({
+        original: item.imageUrl, // Full-size image
+        thumbnail: item.imageUrl, // Use the same image as thumbnail
+    }));
+};
 
 const fetchNews = async () => {
     const data = await sanityClient.fetch(
@@ -21,6 +37,12 @@ const fetchNews = async () => {
 }
 
 function About() {
+    const { data: galleryImages = [], isLoading: isLoadingGallery } = useQuery({
+        queryKey: ['galleryImages'],
+        queryFn: fetchGalleryImages,
+        staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+    });
+
     const { data: newsItems = [], isLoading } = useQuery({
         queryKey: ['newsItems'],
         queryFn: fetchNews,
@@ -32,7 +54,7 @@ function About() {
             <Helmet>
                 <title>About - Helping Brains Heal</title>
             </Helmet>
-            <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 select-none mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
+            <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
                 <div className="flex items-end lg:space-x-12 space-x-3 lg:pb-24 md:mt-20 sm:mt-24 xs:mt-28">
                     <img src={logo} className="lg:w-20 lg:h-20 w-10 h-10 self-center" alt="Helping Brains Heal Logo" />
                     <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl">
@@ -60,15 +82,7 @@ function About() {
                 </div>
 
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Gallery</div>
-
-                <div className="flex flex-row flex-wrap justify-between lg:pb-24">
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                    <img src={logo} className="lg:w-1/3 w-1/2" />
-                </div>
+                <ReactImageGallery items={galleryImages} />
 
                 <div className="font-satoshiBold lg:text-4xl md:text-2xl text-xl">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">

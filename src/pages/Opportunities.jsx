@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStethoscope, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { motion, useMotionValue, useTransform, useInView } from 'framer-motion';
 import '../styles.css';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 
 const remark = [
     {
@@ -64,7 +64,7 @@ const Opportunities = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
 
-    return <div className="realtive mx-auto w-full max-w-7xl px-5 py-20 md:px-10 select-none">
+    return <div className="realtive mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
         <Helmet>
             <title>Treatement Opportunities - Helping Brains Heal</title>
         </Helmet>
