@@ -3,7 +3,7 @@ import sanityClient from '../sanity/sanityClient';
 import { useQuery } from "@tanstack/react-query";
 import Skeleton from 'react-loading-skeleton';
 import { motion } from 'framer-motion';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 
 const fetchClinics = async () => {
     const data = await sanityClient.fetch(
@@ -26,7 +26,7 @@ const Clinic = () => {
     })
 
     return (
-        <div className="bg-background pt-20 sm:py-10 md:py-0 select-none">
+        <div className="bg-background pt-20 sm:py-10 md:py-0">
             <Helmet>
                 <title>Clinic Opportunities - Helping Brains Heal</title>
             </Helmet>
