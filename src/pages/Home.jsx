@@ -90,9 +90,26 @@ const Home = () => {
                         <h1 className="text-4xl font-bold leading-tight pt-20 md:pt-0">
                             Helping Brains Heal
                         </h1>
-                        <p className="mt-4 text-lg text-gray-900 ">
-                            Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI).
+                        <p className="mt-4 text-lg text-gray-900 mr-8">
+                            Bridging the gap between clinically accessible treatments and patients enduring symptoms of Brain Injury.
                         </p>
+                        <a
+                            href="https://branchoutfoundation.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <p
+                                className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150"
+                                style={{
+                                    background: "linear-gradient(to right, rgba(254, 243, 199, 0.5), rgba(55, 202, 236, 0.2), rgba(254, 205, 147, 0.1))",
+                                }}
+                            >
+                                🧠 2024 Recipient of Impact Grant Award from <strong>Branch Out Neurological Foundation.</strong>
+                            </p>
+                        </a>
+
+
                         <Button to="/about" className='mt-5'>About us</Button>
                     </div>
 
@@ -107,19 +124,22 @@ const Home = () => {
                 {/* Left Side: Mission Text */}
                 <div>
                     <h3 className="text-2xl font-satoshiBold mb-4">
-                        Our mission is to enhance recovery and accessibility for individuals enduring symptoms of brain injuries.
+                        Our mission is to enhance the accessibility of treatments for individuals enduring brain injuries.
                     </h3>
                     <p className="font-erodeRegular text-gray-900">
-                        We strive to improve access to rehabilitation resources by distributing care packages, participating in clinical research, and providing free treatments through community outreach. Our goal is to make a tangible impact on the recovery process for those affected by acquired brain injuries.
+                        We strive to improve access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment opportunities. We hope to make a difference during the earlier stages of recovery.
+                    </p>
+                    <p className="font-erodeRegular text-gray-900 mt-5">
+                        By supporting clinical research in neurorehabilitation for individuals enduring symptoms of brain injury, and making treatments more accessible, Helping Brains Heal services patient recovery.
                     </p>
                 </div>
 
                 {/* Right Side: Goal Section */}
-                <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-xs mx-auto py-10">
-                    <h4 className="text-xl font-satoshiBold mb-2"><Ticker targetCount={boxesDonatedCount} />/100 Care Packages</h4>
-                    <ProgressBar progress={(boxesDonatedCount / 100) * 100} />
+                <div className="bg-gray-100 p-6 rounded-lg shadow-md max-w-md mx-auto py-10">
+                    <h4 className="text-xl font-satoshiBold mb-2"><Ticker targetCount={boxesDonatedCount} />/500 brain injury care package donations</h4>
+                    <ProgressBar progress={(boxesDonatedCount / 500) * 100} />
                     <p className="text-gray-600 font-erodeRegular mb-4">
-                        Help us reach our goal of delivering 100 care packages to clinics and organizations supporting ABI recovery.
+                        Help us reach our goal of building and delivering 500 care packages to rehabilitation clinics supporting brain injury patients. The personalized care packages, built by other brain injury survivors, will go directly to patients in these programs.
                     </p>
                     <Button variant="outline" disabled={true} className='mt-5'>Donate (under construction)</Button>
                 </div>
