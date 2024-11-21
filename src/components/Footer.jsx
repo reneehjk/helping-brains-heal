@@ -2,7 +2,7 @@ function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="bg-background border-black border-y-[1px] border-x-0 ">
+        <div className="bg-background border-black border-y-[1px] border-x-0 select-none">
             <div className="flex flex-col p-5 max-w-screen-2xl mx-auto">
                 <div className="flex xl:flex-row lg:flex-row md:flex-row xl:space-x-48 lg:space-x-40 md:space-x-32 flex-col">
                     <div className="xl:w-1/3 lg:w-1/3 md:w-1/3">
