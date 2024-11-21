@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Home from './pages/Home';
 import About from './pages/About';
-import Clinic from './pages/Clinic';
+import Research from './pages/Research';
 import Communities from './pages/Communities';
 import Donations from './pages/Donations';
 import News from './pages/News';
@@ -24,7 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/clinic" element={<Clinic />} />
+              <Route path="/research" element={<Research />} />
               <Route path="/communities" element={<Communities />} />
               <Route path="/donations" element={<Donations />} />
               <Route path="/news" element={<News />} />

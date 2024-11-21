@@ -27,8 +27,8 @@ export const NavBarMenu = [
     },
     {
         id: 5,
-        title: "Clinic",
-        link: "/clinic",
+        title: "Research",
+        link: "/research",
     },
     {
         id: 6,
