@@ -5,7 +5,7 @@ import About from './pages/About';
 import Research from './pages/Research';
 import Communities from './pages/Communities';
 import Donations from './pages/Donations';
-import News from './pages/News';
+import Featured from './pages/Featured';
 import Resources from './pages/Resources';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
@@ -27,7 +27,7 @@ function App() {
               <Route path="/research" element={<Research />} />
               <Route path="/communities" element={<Communities />} />
               <Route path="/donations" element={<Donations />} />
-              <Route path="/news" element={<News />} />
+              <Route path="/featured" element={<Featured />} />
               <Route path="/resources" element={<Resources />} />
               {/* Catch-all route for undefined paths */}
               <Route path="*" element={<NotFound />} />

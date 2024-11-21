@@ -37,8 +37,8 @@ export const NavBarMenu = [
     },
     {
         id: 7,
-        title: "News",
-        link: "/news",
+        title: "Featured",
+        link: "/featured",
     },
 ]
 

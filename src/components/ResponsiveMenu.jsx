@@ -30,7 +30,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
                                 <li key={4} className="hover:underline"><a href="/resources">Resources</a></li>
                                 <li key={5} className="hover:underline"><a href="/research">Research</a></li>
                                 <li key={6} className="hover:underline"><a href="/communities">Community</a></li>
-                                <li key={7} className="hover:underline"><a href="/news">News</a></li>
+                                <li key={7} className="hover:underline"><a href="/featured">Featured</a></li>
                             </ul>
                         </div>
                     </motion.div>
