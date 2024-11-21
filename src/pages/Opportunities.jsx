@@ -64,7 +64,7 @@ const Opportunities = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollY]);
 
-    return <div className="realtive mx-auto w-full max-w-7xl px-5 py-20 md:px-10">
+    return <div className="realtive mx-auto w-full max-w-7xl px-5 py-20 md:px-10 select-none">
         <Helmet>
             <title>Treatement Opportunities - Helping Brains Heal</title>
         </Helmet>
