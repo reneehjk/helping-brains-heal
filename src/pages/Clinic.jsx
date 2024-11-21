@@ -26,7 +26,7 @@ const Clinic = () => {
     })
 
     return (
-        <div className="bg-background pt-20 sm:py-10 md:py-0">
+        <div className="bg-background pt-20 sm:py-10 md:py-0 select-none">
             <Helmet>
                 <title>Clinic Opportunities - Helping Brains Heal</title>
             </Helmet>
