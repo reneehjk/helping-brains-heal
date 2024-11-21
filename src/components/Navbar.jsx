@@ -22,8 +22,8 @@ export const NavBarMenu = [
     },
     {
         id: 4,
-        title: "Opportunities",
-        link: "/opportunities",
+        title: "Resources",
+        link: "/resources",
     },
     {
         id: 5,

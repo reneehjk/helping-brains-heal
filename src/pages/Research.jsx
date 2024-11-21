@@ -18,7 +18,7 @@ const fetchClinics = async () => {
     return data;
 }
 
-const Clinic = () => {
+const Research = () => {
     const { data: clinicItems = [], isLoading } = useQuery({
         queryKey: ['clinicItems'],
         queryFn: fetchClinics,
@@ -80,4 +80,4 @@ const Clinic = () => {
     );
 };
 
-export default Clinic;
+export default Research;
