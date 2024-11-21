@@ -27,7 +27,7 @@ function News() {
     })
 
     return (
-        <div className="bg-background">
+        <div className="bg-background select-none">
             <Helmet>
                 <title>News Features - Helping Brains Heal</title>
             </Helmet>
