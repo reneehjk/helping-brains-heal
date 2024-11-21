@@ -52,13 +52,12 @@ const Navbar = () => {
                     <a href="/">
                         <div className="flex items-center gap-2">
                             <img src={logo} className="h-8" alt="Helping Brains Heal Logo" />
-                            <p className="md:hidden font-satoshiBold text-fontBlack">Helping Brains Heal</p>
-                            <p className="hidden md:block font-satoshiBold text-fontBlack">HBH</p>
+                            <p className="font-satoshiBold text-fontBlack">Helping Brains Heal</p>
                         </div>
                     </a>
                     {/* Menu */}
                     <div className="hidden md:block">
-                        <ul className="flex items-center gap-6 font-satoshiMedium text-primaryBlue">
+                        <ul className="flex items-center gap-[9px] lg:gap-5 font-satoshiMedium text-primaryBlue">
                             {NavBarMenu.map((item) => {
                                 return (
                                     <li key={item.id}>

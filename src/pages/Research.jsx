@@ -40,8 +40,15 @@ const Research = () => {
 
                 </div>
             </header>
+            <div className="mx-auto max-w-7xl px-5 md:px-10 pt-5">
+                <div className=" font-satoshiBold pt-2 text-xl text-primaryBlue ">Join a remote or in person study in the GTA for opportunities to receive clinical care or support for your brain injury</div>
+                <div className="font-satoshiBold text-[2 rem] pt-5">Why you should consider enrolling in a research study</div>
+                <div className=" font-erodeRegular pt-2">Talk about the stigma around research and privacy and why it’s important to understand that RESEARCH IS A GOOD THING
+                </div>
+            </div>
 
-            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
+
+            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-10">
                 <div className="flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
 
                     {isLoading ? (

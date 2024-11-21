@@ -8,13 +8,13 @@ function Footer() {
                     <div className="xl:w-1/3 lg:w-1/3 md:w-1/3">
                         <div className="font-satoshiBold xl:text-xl lg:text-xl md:text-lg text-lg text-primaryBlue mb-3">Helping Brains Heal</div>
                         <div className="font-erodeRegular xl:text-lg lg:text-lg md:text-sm text-sm mb-1">
-                            Bringing accessible treatment and care packages to support rehabilitation for those with acquired brain injuries (ABI)
+                        Acting as a link between patients enduring symptoms of brain injury and treatment based in clinical research and community support
                         </div>
                     </div>
                     <div className="flex flex-row xl:space-x-48 lg:space-x-40 md:space-x-32 justify-between">
                         <div className="flex flex-col font-satoshiMedium xl:text-lg lg:text-lg md:text-sm text-sm mt-3">
                             <a href="/about" className="hover:underline">About Us</a>
-                            <a href="/opportunities" className="hover:underline">Treatment Opportunities</a>
+                            <a href="/resources" className="hover:underline">Free Resources</a>
                             <a href="/donations" className="hover:underline">Donate</a>
                             <a href="/news" className="hover:underline">News</a>
                         </div>
