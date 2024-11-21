@@ -45,7 +45,7 @@ export const NavBarMenu = [
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
     return (
-        <div className="z-3 relative">
+        <div className="z-3 relative select-none">
             <nav className="bg-white shadow-sm fixed w-full z-20 p-4 bg-opacity-80 backdrop-blur-lg">
                 <div className="max-w-screen-2xl flex justify-between items-center px-1 md:px-4 mx-auto">
                     {/* logo */}
