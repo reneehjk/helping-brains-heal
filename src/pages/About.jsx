@@ -50,7 +50,7 @@ function About() {
     })
 
     return (
-        <div className="bg-background text-fontBlack">
+        <div className="bg-background text-fontBlack select-none">
             <Helmet>
                 <title>About - Helping Brains Heal</title>
             </Helmet>
