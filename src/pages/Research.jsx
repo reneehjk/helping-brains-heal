@@ -40,7 +40,7 @@ const Research = () => {
                 </div>
             </header>
             <div className="mx-auto max-w-7xl px-5 md:px-10 pt-8 md:pt-10">
-                <div className=" font-satoshiBold lg:text-2xl text-xl text-primaryBlue">Join a remote or in person study in the Greater Toronto Area for opportunities to receive clinical care or support for your brain injury!</div>
+                <div className=" font-satoshiMedium lg:text-2xl text-xl text-primaryBlue">Join a remote or in person study in the Greater Toronto Area for opportunities to receive clinical care or support for your brain injury!</div>
 
             </div>
 
