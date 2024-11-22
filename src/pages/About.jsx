@@ -61,7 +61,7 @@ function About() {
                         About Helping Brains Heal
                     </div>
                 </div>
-                <div className="font-satoshiBold xl:text-4xl lg:text-4xl text-3xl">Our Mission </div>
+                <div className="font-satoshiBold text-3xl">Our Mission </div>
                 <div className="flex self-center font-erodeRegular xl:text-lg lg:text-lg text-base text-center mt-3 lg:pb-24 sm:mx-5">
                     Our mission is to enhance the accessibility of treatments for individuals enduring brain injuries. We strive to improve
                         access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment 
@@ -69,10 +69,10 @@ function About() {
                 </div>
               
 
-                <div className="font-satoshiBold xl:text-4xl lg:text-4xl text-3xl">Gallery</div>
+                <div className="font-satoshiBold text-3xl">Gallery</div>
                 <ReactImageGallery items={galleryImages} />
 
-                <div className="font-satoshiBold xl:text-4xl lg:text-4xl text-3xl">Latest News</div>
+                <div className="font-satoshiBold text-3xl">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
                     {isLoading ? (
                         <div className="w-full">
@@ -109,7 +109,7 @@ function About() {
                 </div>
                 <div className="flex justify-center lg:py-24 py-12">
                     <div className="flex flex-col items-center">
-                        <div className="font-satoshiBold xl:text-4xl lg:text-4xl text-3xl text-center">Support Recovery Efforts</div>
+                        <div className="font-satoshiBold text-3xl text-center">Support Recovery Efforts</div>
                         <div className="font-erodeRegular xl:text-lg lg:text-lg text-base mt-6 lg:w-1/2 w-3/4 text-center">
                             Your donation helps fund care packages and rehabilitation resources for individuals with acquired brain injuries.
                         </div>
