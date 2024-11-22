@@ -87,7 +87,7 @@ const Home = () => {
                 <div className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center">
                     {/* Hero Content */}
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight pt-20 md:pt-0">
+                        <h1 className="text-4xl font-satoshiBold leading-tight pt-20 md:pt-0">
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 mr-8">
