@@ -7,8 +7,8 @@ import Communities from './pages/Communities';
 import Donations from './pages/Donations';
 import Featured from './pages/Featured';
 import Resources from './pages/Resources';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import NotFound from './pages/NotFound';
 import { HelmetProvider } from 'react-helmet-async';
 

@@ -12,16 +12,16 @@ function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-row xl:space-x-48 lg:space-x-40 md:space-x-32 justify-between">
-                        <div className="flex flex-col font-satoshiMedium xl:text-lg lg:text-lg md:text-sm text-sm mt-3">
+                        <div className="flex flex-col font-satoshiMedium xl:text-lg lg:text-lg md:text-sm text-sm mt-8">
                             <a href="/about" className="hover:underline">About Us</a>
-                            <a href="/resources" className="hover:underline">Free Resources</a>
+                            <a href="/resources" className="hover:underline">Resources</a>
                             <a href="/donations" className="hover:underline">Donate</a>
                             <a href="/news" className="hover:underline">News</a>
                         </div>
                         <div className="flex flex-col font-satoshiMedium text-fontBlack xl:text-lg lg:text-lg md:text-sm text-sm">
-                            <div className="font-satoshiBold xl:text-xl lg:text-xl md:text-lg text-lg text-fontBlack mb-1">Contact us</div>
+                            <div className="font-satoshiBold xl:text-xl lg:text-xl md:text-lg text-lg text-primaryBlue mb-1">Contact us</div>
                             <div className="flex flex-col xl:text-left lg:text-left md:text-left text-right">
-                                <a href="mailto:helpbrainsheal@gmail.com" className="hover:underline">helpbrainsheal@gmail.com</a>
+                                <a href="mailto:helpbrainsheal@gmail.com" className="hover:underline">Email</a>
                                 <a href="https://www.linkedin.com/company/helpingbrainsheal/" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
                                 <a href="https://www.instagram.com/helpingbrainsheal/" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a>
                                 <a href="https://www.facebook.com/profile.php?id=61568764684737" target="_blank" rel="noopener noreferrer" className="hover:underline">Facebook</a>
