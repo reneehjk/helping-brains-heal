@@ -51,13 +51,13 @@ const Navbar = () => {
                     {/* logo */}
                     <a href="/">
                         <div className="flex items-center gap-2">
-                            <img src={logo} className="h-8" alt="Helping Brains Heal Logo" />
+                            <img src={logo} className="h-7" alt="Helping Brains Heal Logo" />
                             <p className="font-satoshiBold text-fontBlack">Helping Brains Heal</p>
                         </div>
                     </a>
                     {/* Menu */}
-                    <div className="hidden md:block">
-                        <ul className="flex items-center gap-[9px] lg:gap-5 font-satoshiMedium text-primaryBlue">
+                    <div className="hidden lg:block">
+                        <ul className="flex items-center gap-5 font-satoshiMedium text-primaryBlue">
                             {NavBarMenu.map((item) => {
                                 return (
                                     <li key={item.id}>
@@ -70,7 +70,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     {/* Mobile menu */}
-                    <div className="md:hidden" onClick={() => setOpen(!open)}>
+                    <div className="lg:hidden" onClick={() => setOpen(!open)}>
                         <FontAwesomeIcon icon={faBars} className="text-xl" />
                     </div>
                 </div>

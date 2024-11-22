@@ -20,7 +20,7 @@ const ResponsiveMenu = ({ open, setOpen }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed top-[64px] right-0 w-full bg-white shadow-sm z-20 md:hidden"
+                        className="fixed top-[60px] right-0 w-full bg-white shadow-sm z-20 lg:hidden"
                     >
                         <div className="text-lg font-satoshiBold text-fontBlack py-10">
                             <ul className="flex flex-col justify-center items-center gap-5">
