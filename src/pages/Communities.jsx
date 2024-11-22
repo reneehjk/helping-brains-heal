@@ -30,7 +30,7 @@ const Communities = () => {
             <Helmet>
                 <title>Communities - Helping Brains Heal</title>
             </Helmet>
-            <header className="relative mx-auto w-full h-52 sm:h-48 md:h-60 bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('/src/assets/community_bg.jpg')" }}>
+            <header className="relative mx-auto w-full h-52 sm:h-48 md:h-60 bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('https://images.pexels.com/photos/1595386/pexels-photo-1595386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" }}>
                 <div className="absolute inset-0 bg-gradient-to-b from-primaryBlue/30 via-fontBlack/50 to-fontBlack/80">
                     <div className="absolute inset-0 flex items-end">
                         <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-6 font-satoshiBold text-5xl text-background">
