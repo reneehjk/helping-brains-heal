@@ -60,8 +60,8 @@ const Resources = () => {
                         ))}
                     </div>
                 </div>
-                <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 p-12 xl:px-12 lg:px-12 md:px-7 px-3 pb-8 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
-                    <h2 className="xl:text-xl lg:text-xl md:text-lg text-md font-satoshiMedium mb-8 text-primaryBlue">
+                <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 xl:p-12 lg:p-12 md:p-7 py-7 px-3 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
+                    <h2 className="text-3xl font-satoshiBold mb-8 text-fontBlack">
                         Frequently Asked Questions
                     </h2>
                     {qa.map((item, index) => (
@@ -83,7 +83,8 @@ const Resources = () => {
                         </div>
                     ))}
                 </div>
-            </div>                
+            </div>     
+            <div className='text-center mt-8 font-erodeRegular xl:text-lg lg:text-lg text-base text-fontBlack'>Disclaimer</div>          
         </div>
     );
 };
