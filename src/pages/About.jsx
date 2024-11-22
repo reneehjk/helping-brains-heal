@@ -1,4 +1,4 @@
-import logo from "../assets/helpingBrainsHeal.svg";
+import logo from "../assets/logo.svg";
 import NewsItem from "../components/NewsItemsAbout";
 import sanityClient from '../sanity/sanityClient';
 import Skeleton from 'react-loading-skeleton';
@@ -55,9 +55,9 @@ function About() {
                 <title>About - Helping Brains Heal</title>
             </Helmet>
             <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
-                <div className="flex items-end lg:space-x-12 space-x-3 lg:pb-24 md:mt-20 sm:mt-24 xs:mt-28">
-                    <img src={logo} className="w-20 h-20 self-center" alt="Helping Brains Heal Logo" />
-                    <div className="font-satoshiBold text-5xl">
+                <div className="flex xl:flex-row lg:flex-row flex-col items-center space-x-5 lg:pb-24 md:mt-10 sm:mt-20 xs:mt-20 xl:mb-0 lg:mb-0 mb-10">
+                    <img src={logo} className="w-28 h-28 self-center" alt="Helping Brains Heal Logo" />
+                    <div className="font-satoshiBold text-5xl xl:text-left lg:text-left text-center">
                         About Helping Brains Heal
                     </div>
                 </div>
