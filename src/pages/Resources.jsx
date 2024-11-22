@@ -29,12 +29,12 @@ const Resources = () => {
             <Helmet>
                 <title>Free Resources - Helping Brains Heal</title>
             </Helmet>
-            <h1 className="text-left xl:text-5xl lg:text-5xl md:text-3xl text-2xl font-satoshiBold xl:pt-20 lg:pt-20 md:pt-14 pt-7">
+            <h1 className="text-left text-5xl font-satoshiBold xl:pt-20 lg:pt-20 md:pt-14 pt-7">
                 Free Resources
             </h1>
             <div className="absolute top-0 right-0 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
             <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
-            <div className="flex lg:flex-row flex-col justify-between mt-16 mb-16">
+            <div className="flex lg:flex-row flex-col justify-between mt-10 mb-10">
                 <div>
                     <div className='font-satoshiMedium xl:text-xl lg:text-xl md:text-lg text-md xl:text-left lg:text-left text-center'>
                         <div className='hover:underline'>Resource</div>
@@ -48,14 +48,14 @@ const Resources = () => {
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
                 <div className='lg:max-w-[45%]'>
-                    <h1 className="xl:text-4xl lg:text-4xl md:text-2xl text-xl font-satoshiBold mb-4">Concussion</h1>
-                    <h2 className="xl:text-xl lg:text-xl md:text-lg text-md font-satoshiMedium  text-primaryBlue mb-2">What Should I Do Next?</h2>
-                    <h3 className='mb-5 font-satoshiBold lg:text-lg md:text-md text-sm text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
+                    <h1 className="xl:text-4xl lg:text-4xl text-3xl font-satoshiBold mb-4">Concussion</h1>
+                    <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiMedium  text-primaryBlue mb-2">What Should I Do Next?</h2>
+                    <h3 className='mb-5 font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
                     <div className="space-y-6">
                         {remark.map((item, index) => (
                             <div key={index} className="flex flex-col space-y-2">
-                                <span className="font-satoshiBold xl:text-lg lg:text-lg md:text-md text-sm text-fontBlack">{item.main}</span>
-                                <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg md:text-md text-sm">{item.description}</span>
+                                <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">{item.main}</span>
+                                <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base">{item.description}</span>
                             </div>
                         ))}
                     </div>
@@ -66,16 +66,14 @@ const Resources = () => {
                     </h2>
                     {qa.map((item, index) => (
                         <div key={index} className="flex flex-col mb-5">
-                            {/* Question Section */}
                             <div className="flex flex-row items-center mb-5"> 
                                 <img src={question} className="h-9 w-9 mr-3" alt="Question icon" />
-                                <span className="font-satoshiBold xl:text-lg lg:text-lg md:text-md text-sm text-fontBlack">
+                                <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">
                                     {item.question}
                                 </span>
                             </div>
-                            {/* Answer Section */}
                             <div className="flex flex-row items-start">
-                                <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg md:text-md text-sm mr-3 text-right">
+                                <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base mr-3 text-right">
                                     {item.answer}
                                 </span>
                                 <img src={doctor} className="h-9 w-9" alt="Doctor icon" />
