@@ -100,7 +100,7 @@ const Home = () => {
                             className="block"
                         >
                             <p
-                                className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150"
+                                className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150 font-satoshiMedium"
                                 style={{
                                     background: "linear-gradient(to right, rgba(254, 243, 199, 0.5), rgba(55, 202, 236, 0.2), rgba(254, 205, 147, 0.1))",
                                 }}
