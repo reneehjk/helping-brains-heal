@@ -60,18 +60,20 @@ const Resources = () => {
                         ))}
                     </div>
                 </div>
-                <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 p-12 pb-8 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
+                <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 p-12 xl:px-12 lg:px-12 md:px-7 px-3 pb-8 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
                     <h2 className="xl:text-xl lg:text-xl md:text-lg text-md font-satoshiMedium mb-8 text-primaryBlue">
                         Frequently Asked Questions
                     </h2>
                     {qa.map((item, index) => (
                         <div key={index} className="flex flex-col mb-5">
+                            {/* Question Section */}
                             <div className="flex flex-row items-center mb-5"> 
                                 <img src={question} className="h-9 w-9 mr-3" alt="Question icon" />
                                 <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">
                                     {item.question}
                                 </span>
                             </div>
+                            {/* Answer Section */}
                             <div className="flex flex-row items-start">
                                 <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base mr-3 text-right">
                                     {item.answer}
