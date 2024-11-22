@@ -19,7 +19,7 @@ const fetchNews = async () => {
     return data;
 }
 
-function News() {
+function Featured() {
     const { data: newsItems = [], isLoading } = useQuery({
         queryKey: ['newsItems'],
         queryFn: fetchNews,
@@ -29,7 +29,7 @@ function News() {
     return (
         <div className="bg-background select-none">
             <Helmet>
-                <title>News Features - Helping Brains Heal</title>
+                <title>Featured - Helping Brains Heal</title>
             </Helmet>
             <div className="min-h-screen  justify-start space-y-6 mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
                 <div className="font-satoshiBold lg:text-5xl md:text-3xl text-2xl lg:pb-16 pb-14 pt-20">Latest News</div>
@@ -68,4 +68,4 @@ function News() {
     );
 }
 
-export default News;
+export default Featured;
