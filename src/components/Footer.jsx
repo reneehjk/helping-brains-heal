@@ -12,7 +12,7 @@ function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-row xl:space-x-48 lg:space-x-40 md:space-x-32 justify-between">
-                        <div className="flex flex-col font-satoshiMedium xl:text-lg lg:text-lg md:text-sm text-sm mt-3">
+                        <div className="flex flex-col font-satoshiMedium xl:text-lg lg:text-lg md:text-sm text-sm mt-8">
                             <a href="/about" className="hover:underline">About Us</a>
                             <a href="/resources" className="hover:underline">Resources</a>
                             <a href="/donations" className="hover:underline">Donate</a>
