@@ -48,7 +48,7 @@ const Resources = () => {
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
                 <div className='lg:max-w-[45%]'>
-                    <h1 className="xl:text-4xl lg:text-4xl text-3xl font-satoshiBold mb-4">Concussion</h1>
+                    <h1 className="text-3xl font-satoshiBold mb-4">Concussion</h1>
                     <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiMedium  text-primaryBlue mb-2">What Should I Do Next?</h2>
                     <h3 className='mb-5 font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
                     <div className="space-y-6">
