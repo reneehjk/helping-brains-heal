@@ -58,6 +58,9 @@ const Resources = () => {
                                 <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base">{item.description}</span>
                             </div>
                         ))}
+                        </div>
+                    <div className='mt-6'>
+                    <a href="https://concussionsontario.org/concussion/guideline-section/initial_management" className='font-satoshiMedium text-gray-700 text-base'> Source: Concussions Ontario </a>
                     </div>
                 </div>
                 <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 xl:p-12 lg:p-12 md:p-7 py-7 px-3 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
