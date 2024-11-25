@@ -91,7 +91,7 @@ const Home = () => {
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
-                            Bridging the gap between clinically accessible treatments and patients enduring symptoms of Brain Injury.
+                            Connecting patients enduring symptoms of brain injury with treatments based in clinical research and community support.
                         </p>
                         <a
                             href="https://branchoutfoundation.com/"
@@ -100,7 +100,7 @@ const Home = () => {
                             className="block"
                         >
                             <p
-                                className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150 font-satoshiMedium"
+                                className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md md:w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150 font-satoshiMedium"
                                 style={{
                                     background: "linear-gradient(to right, rgba(254, 243, 199, 0.5), rgba(55, 202, 236, 0.2), rgba(254, 205, 147, 0.1))",
                                 }}
@@ -154,7 +154,7 @@ const Home = () => {
 
             <section ref={teamSectionRef} className='py-20'>
                 <h2 className="text-3xl font-satoshiBold pb-5">Our Team</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                     {/* Dynamically render TeamCard components */}
                     {teamMembers.map((member, index) => (
                         <motion.div
