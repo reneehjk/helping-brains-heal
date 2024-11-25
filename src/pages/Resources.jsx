@@ -88,7 +88,7 @@ const Resources = () => {
                     ))}
                 </div>
             </div>     
-            <div className='text-center mt-8 font-erodeRegular xl:text-lg lg:text-lg text-base text-fontBlack'>Disclaimer</div>          
+            <div className='text-center mt-8 font-erodeRegular xl:text-lg lg:text-lg text-base text-fontBlack'>Disclaimer: These are general guidlines, please seek and follow the advice of a medical professional.</div>          
         </div>
     );
 };
