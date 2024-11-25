@@ -55,7 +55,7 @@ function About() {
                 <title>About - Helping Brains Heal</title>
             </Helmet>
             <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
-                <div className="flex xl:flex-row lg:flex-row flex-col items-center space-x-5 lg:pb-24 md:mt-10 sm:mt-20 xs:mt-20 xl:mb-0 lg:mb-0 mb-10">
+                <div className="flex xl:flex-row lg:flex-row flex-col items-center space-x-6 lg:pb-24 md:mt-10 sm:mt-20 xs:mt-20 xl:mb-0 lg:mb-0 mb-10">
                     <img src={logo} className="w-28 h-28 self-center" alt="Helping Brains Heal Logo" />
                     <div className="font-satoshiBold text-5xl xl:text-left lg:text-left text-center">
                         About Helping Brains Heal

@@ -35,8 +35,8 @@ const Resources = () => {
             <div className="absolute top-0 right-0 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
             <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
             <div className="flex lg:flex-row flex-col justify-between mt-10 mb-10">
-                <div>
-                    <div className='font-satoshiMedium xl:text-xl lg:text-xl md:text-lg text-md xl:text-left lg:text-left text-center'>
+               <div>
+                    <div className='lg:mt-5 font-satoshiMedium xl:text-xl lg:text-xl md:text-lg lg:text-left text-center'>
                         <div className='hover:underline'>Resource</div>
                         <div className='hover:underline'>Resource</div>
                         <div className='hover:underline'>Resource</div>
@@ -44,13 +44,13 @@ const Resources = () => {
                         <div className='hover:underline'>Resource</div>
                     </div>
                 </div>
-                <img src={concussionPic} className='xl:max-w-[45%] lg:max-w-[45%] md:self-center sm:self-center xs:self-center sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0' />
+                <img src={concussionPic} className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' />
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
-                <div className='lg:max-w-[45%]'>
+                <div className='lg:hidden'>
                     <h1 className="text-3xl font-satoshiBold mb-4">Concussion</h1>
-                    <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiMedium  text-primaryBlue mb-2">What Should I Do Next?</h2>
-                    <h3 className='mb-5 font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
+                    <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiBold  text-primaryBlue mb-2">What Should I Do Next?</h2>
+                    <h3 className='mb-5 font-satoshiMedium xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
                     <div className="space-y-6">
                         {remark.map((item, index) => (
                             <div key={index} className="flex flex-col space-y-2">
@@ -58,12 +58,13 @@ const Resources = () => {
                                 <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base">{item.description}</span>
                             </div>
                         ))}
-                        </div>
+                    </div>
                     <div className='mt-6'>
-                    <a href="https://concussionsontario.org/concussion/guideline-section/initial_management" target="_blank" rel="noopener noreferrer" className='font-satoshiMedium text-gray-700 text-base'> 
-                        (Ottawa Hospital Research Institute, 2024) </a>
+                        <a href="https://concussionsontario.org/concussion/guideline-section/initial_management" target="_blank" rel="noopener noreferrer" className='font-satoshiMedium text-gray-700 text-base'>
+                            (Ottawa Hospital Research Institute, 2024) </a>
                     </div>
                 </div>
+
                 <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 xl:p-12 lg:p-12 md:p-7 py-7 px-3 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
                     <h2 className="text-3xl font-satoshiBold mb-8 text-fontBlack">
                         Frequently Asked Questions
@@ -71,7 +72,7 @@ const Resources = () => {
                     {qa.map((item, index) => (
                         <div key={index} className="flex flex-col mb-5">
                             {/* Question Section */}
-                            <div className="flex flex-row items-center mb-5"> 
+                            <div className="flex flex-row items-center mb-5">
                                 <img src={question} className="h-9 w-9 mr-3" alt="Question icon" />
                                 <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">
                                     {item.question}
@@ -87,8 +88,25 @@ const Resources = () => {
                         </div>
                     ))}
                 </div>
-            </div>     
-            <div className='text-center mt-8 font-erodeRegular xl:text-lg lg:text-lg text-base text-fontBlack'>Disclaimer: These are general guidlines, please seek and follow the advice of a medical professional.</div>          
+                <div className='hidden lg:block lg:max-w-[45%]'>
+                    <h1 className="text-3xl font-satoshiBold mb-4">Concussion</h1>
+                    <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiBold  text-primaryBlue mb-2">What Should I Do Next?</h2>
+                    <h3 className='mb-5 font-satoshiMedium xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
+                    <div className="space-y-6">
+                        {remark.map((item, index) => (
+                            <div key={index} className="flex flex-col space-y-2">
+                                <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">{item.main}</span>
+                                <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base">{item.description}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className='mt-6'>
+                        <a href="https://concussionsontario.org/concussion/guideline-section/initial_management" target="_blank" rel="noopener noreferrer" className='font-satoshiMedium text-gray-700 text-base'>
+                            (Ottawa Hospital Research Institute, 2024) </a>
+                    </div>
+                </div>
+            </div>
+            <div className='text-center mt-8 font-erodeRegular xl:text-lg lg:text-lg text-base text-fontBlack'>Disclaimer: These are general guidlines, please seek and follow the advice of a medical professional.</div>
         </div>
     );
 };
