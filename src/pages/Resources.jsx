@@ -61,7 +61,7 @@ const Resources = () => {
                         </div>
                     <div className='mt-6'>
                     <a href="https://concussionsontario.org/concussion/guideline-section/initial_management" target="_blank" rel="noopener noreferrer" className='font-satoshiMedium text-gray-700 text-base'> 
-                        Source: Concussions Ontario </a>
+                        (Ottawa Hospital Research Institute, 2024) </a>
                     </div>
                 </div>
                 <div className="lg:max-w-[45%] bg-secondaryBlue bg-opacity-20 xl:p-12 lg:p-12 md:p-7 py-7 px-3 rounded-xl sm:mt-10 xs:mt-10 lg:mt-0 xl:mt-0">
