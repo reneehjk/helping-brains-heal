@@ -1,13 +1,13 @@
-import sanityClient from '../sanity/sanityClient'
 import InfoCard from "../components/informationCard";
+import sanityClient from '../sanity/sanityClient';
 import { useQuery } from "@tanstack/react-query";
 import Skeleton from 'react-loading-skeleton';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
-const fetchCommunities = async () => {
+const fetchClinics = async () => {
     const data = await sanityClient.fetch(
-        `*[_type == "community"]{
+        `*[_type == "clinic"]{
             name,
             location,
             description,
@@ -18,30 +18,36 @@ const fetchCommunities = async () => {
     return data;
 }
 
-const Communities = () => {
-    const { data: communityItems = [], isLoading } = useQuery({
-        queryKey: ['communityItems'],
-        queryFn: fetchCommunities,
+const Research = () => {
+    const { data: clinicItems = [], isLoading } = useQuery({
+        queryKey: ['clinicItems'],
+        queryFn: fetchClinics,
         staleTime: 1000 * 60 * 5,
     })
 
     return (
         <div className="bg-background sm:py-10 md:py-0 select-none">
-            <Helmet>
-                <title>Communities - Helping Brains Heal</title>
+            <Helmet >
+                <title >Research Opportunities - Helping Brains Heal</title>
             </Helmet>
-            <header className="relative mx-auto w-full h-52 sm:h-48 md:h-60 bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('https://images.pexels.com/photos/1595386/pexels-photo-1595386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" }}>
-                <div className="absolute inset-0 bg-gradient-to-b from-primaryBlue/30 via-fontBlack/50 to-fontBlack/80">
+            <header className="mx-auto relative w-full h-56 sm:h-48 md:h-60 bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('https://images.pexels.com/photos/5699431/pexels-photo-5699431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')" }}>
+                <div className="absolute inset-0 bg-gradient-to-b from-primaryBlue/40 via-fontBlack/50 to-fontBlack/80">
                     <div className="absolute inset-0 flex items-end">
                         <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-6 font-satoshiBold text-5xl text-background">
-                            Communities
+                            Research Opportunitites
                         </div>
                     </div>
                 </div>
             </header>
+            <div className="mx-auto max-w-7xl px-5 md:px-10 pt-8 md:pt-10">
+                <div className=" font-satoshiMedium lg:text-2xl text-xl text-primaryBlue">Join a remote or in person study in the Greater Toronto Area for opportunities to receive clinical care or support for your brain injury!</div>
 
-            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
+            </div>
+
+
+            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 ">
                 <div className="flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
+
                     {isLoading ? (
                         <>
                             {[...Array(4)].map((_, index) => (
@@ -54,28 +60,34 @@ const Communities = () => {
                             ))}
                         </>
                     ) : (
-                        communityItems.map((community, index) => (
+                        clinicItems.map((clinic, index) => (
                             <motion.div
-                                key={community._id}
+                                key={clinic._id}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: index * 0.1, duration: 0.4 }}
                             >
                                 <InfoCard
                                     key={index}
-                                    name={community.name}
-                                    location={community.location}
-                                    details={community.description}
-                                    imageSrc={community.image}
-                                    linkTo={community.link}
+                                    name={clinic.name}
+                                    location={clinic.location}
+                                    details={clinic.description}
+                                    imageSrc={clinic.image}
+                                    linkTo={clinic.link}
                                 />
                             </motion.div>
                         ))
                     )}
+                </div>
+
+                <div className="w-full shadow-lg border bg-secondaryBlue bg-opacity-15 rounded-lg border-primaryBlue  mt-5 p-2">
+                    <div className="font-satoshiBold lg:text-xl text-lg text-fontBlack ">Why you should consider enrolling in a research study</div>
+                    <div className=" font-erodeRegular pt-2 text-fontBlack">Talk about the stigma around research and privacy and why it’s important to understand that RESEARCH IS A GOOD THING
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Communities;
+export default Research;
