@@ -39,8 +39,11 @@ const Communities = () => {
                     </div>
                 </div>
             </header>
-
-            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-20">
+            <div className="mx-auto max-w-7xl px-5 md:px-10 pt-8 md:pt-10">
+                <div className=" font-satoshiMedium lg:text-2xl text-xl text-primaryBlue">Join a community of people who have lived the same experience as you. Connect with others and learn more about your injury.</div>
+            </div>
+            
+            <div className="w-full mx-auto max-w-7xl px-5 py-10 md:px-10">
                 <div className="flex flex-wrap flex-col items-center justify-center sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-5">
                     {isLoading ? (
                         <>
