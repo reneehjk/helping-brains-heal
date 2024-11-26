@@ -34,6 +34,11 @@ const Resources = () => {
             </h1>
             <div className="absolute top-0 right-0 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
             <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
+            <div className="mx-auto max-w-7xl pt-8">
+                <div className=" font-satoshiMedium lg:text-xl text-primaryBlue">
+                For those in the Great Toronto Area searching for recovery during acute or chronic stages of a brain injury, we have compiled a list of free resources available including: Peer mentorship programs, symptom and lifestyle trackers, email templates for self advocating, and more.
+                </div>
+            </div>
             <div className="flex lg:flex-row flex-col justify-between mt-10 mb-10">
                <div>
                     <div className='lg:mt-5 font-satoshiMedium xl:text-xl lg:text-xl md:text-lg lg:text-left text-center'>
@@ -44,7 +49,10 @@ const Resources = () => {
                         <div className='hover:underline'>Resource</div>
                     </div>
                 </div>
-                <img src={concussionPic} className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' />
+                {/* <img src={concussionPic} className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' /> */} {/*copyright*/}
+                <div className=' border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0 overflow-hidden'>
+                    <div className='bg-slate-500 h-[400px] w-[1000px]'></div>
+                </div>
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
                 <div className='lg:hidden'>
@@ -70,10 +78,10 @@ const Resources = () => {
                         Frequently Asked Questions
                     </h2>
                     {qa.map((item, index) => (
-                        <div key={index} className="flex flex-col mb-5">
+                        <div key={index} className="flex flex-col mb-7">
                             {/* Question Section */}
                             <div className="flex flex-row items-center mb-5">
-                                <img src={question} className="h-9 w-9 mr-3" alt="Question icon" />
+                                <img src={question} className="h-7 w-7 mr-3" alt="Question icon" />
                                 <span className="font-satoshiBold xl:text-lg lg:text-lg text-base text-fontBlack">
                                     {item.question}
                                 </span>
@@ -83,14 +91,14 @@ const Resources = () => {
                                 <span className="font-satoshiMedium text-gray-700 xl:text-lg lg:text-lg text-base mr-3 text-right">
                                     {item.answer}
                                 </span>
-                                <img src={doctor} className="h-9 w-9" alt="Doctor icon" />
+                                <img src={doctor} className="mt-1 h-8 w-8" alt="Doctor icon" />
                             </div>
                         </div>
                     ))}
                 </div>
                 <div className='hidden lg:block lg:max-w-[45%]'>
-                    <h1 className="text-3xl font-satoshiBold mb-4">Concussion</h1>
-                    <h2 className="xl:text-xl lg:text-xl text-lg font-satoshiBold  text-primaryBlue mb-2">What Should I Do Next?</h2>
+                    <h1 className="text-3xl font-satoshiBold mt7 mb-3 pt-10 ">Concussion</h1>
+                    <h2 className="lg:text-xl text-lg font-satoshiBold  text-primaryBlue ">What Should I Do Next?</h2>
                     <h3 className='mb-5 font-satoshiMedium xl:text-lg lg:text-lg text-base text-fontBlack'>This is known as the acute phase (follow the steps below)</h3>
                     <div className="space-y-6">
                         {remark.map((item, index) => (
