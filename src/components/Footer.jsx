@@ -8,7 +8,7 @@ function Footer() {
                     <div className="xl:w-1/3 lg:w-1/3 md:w-1/3">
                         <div className="font-satoshiBold xl:text-xl lg:text-xl md:text-lg text-lg text-primaryBlue mb-3">Helping Brains Heal</div>
                         <div className="font-erodeRegular xl:text-lg lg:text-lg md:text-sm text-sm mb-1">
-                        Acting as a link between patients enduring symptoms of brain injury and treatment based in clinical research and community support
+                        Acting as a link between patients enduring symptoms of brain injury and treatment based in clinical research and community support.
                         </div>
                     </div>
                     <div className="flex flex-row xl:space-x-48 lg:space-x-40 md:space-x-32 justify-between">
