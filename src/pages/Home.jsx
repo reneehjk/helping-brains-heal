@@ -91,25 +91,25 @@ const Home = () => {
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
-                        By supporting clinical research in neurorehabilitation, and community-based organizations in the Great Toronto Area, Helping Brains Heal services individuals enduring symptoms of brain injury and makes treatments more accessible.
+                            By supporting clinical research in neurorehabilitation, and community-based organizations in the Great Toronto Area, Helping Brains Heal services individuals enduring symptoms of brain injury and makes treatments more accessible.
                         </p>
                         <a
                             href="https://branchoutfoundation.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block"
-                            >
+                        >
                             <p
                                 className="mt-4 text-lg text-gray-900 mr-8 p-2 rounded-md md:w-2/3 hover:shadow-md hover:shadow-[#37CAEC]/50 duration-150 font-satoshiMedium"
                                 style={{
                                     background: "linear-gradient(to right, rgba(254, 243, 199, 0.5), rgba(55, 202, 236, 0.2), rgba(254, 205, 147, 0.1))",
                                 }}
-                                >
-                               <img className="w-7 h-7 inline-block mr-2" src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1OH1-t2aBUQWzjIDZFjnki1TP1CLkfYc9rA&s'}/>
+                            >
+                                <img className="w-7 h-7 inline-block mr-2" src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1OH1-t2aBUQWzjIDZFjnki1TP1CLkfYc9rA&s'} />
                                 2024 Recipient of Impact Grant Award from <strong>Branch Out Neurological Foundation.</strong>
                             </p>
                         </a>
-                                {/* <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
+                        {/* <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
                                 What will you find on this website? A guide to free resources such as a concussion peer mentorship program, audio-based stories of brain injury patients and medical experts, a symptoms log, and many more!
                                 </p> */}
 
@@ -131,10 +131,10 @@ const Home = () => {
                         Our mission is to enhance the accessibility of treatments for individuals enduring brain injuries.
                     </h3>
                     <p className="font-erodeRegular text-gray-900">
-                    We strive to improve access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment opportunities. We want to aid patients in taking action during their recovery, including acute stages and the chronic stages.
+                        We strive to improve access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment opportunities. We want to aid patients in taking action during their recovery, including acute stages and the chronic stages.
                     </p>
                     <p className="font-erodeRegular text-gray-900 mt-5">
-                    Who are we supporting? We support individuals with brain injuries, their loved ones, and the clinicians providing treatment for brain injuries.
+                        Who are we supporting? We support individuals with brain injuries, their loved ones, and the clinicians providing treatment for brain injuries.
                     </p>
                 </div>
 
@@ -145,7 +145,7 @@ const Home = () => {
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of building and delivering 500 care packages to rehabilitation clinics supporting brain injury patients. The personalized care packages, built by other brain injury survivors, will go directly to patients in these programs.
                     </p>
-                    <Button variant="outline" disabled={true} className='mt-5'>Donate (under construction)</Button>
+                    <Button to="/donations" variant="outline" disabled={false} className='mt-5'>Donate</Button>
                 </div>
             </section>
 
