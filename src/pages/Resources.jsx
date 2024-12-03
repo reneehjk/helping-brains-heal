@@ -51,7 +51,7 @@ const Resources = () => {
                 </div>
                 {/* <img src={concussionPic} className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' /> */} {/*copyright*/}
                 <div className=' border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0 overflow-hidden'>
-                    <div className='bg-slate-500 h-[400px] w-[1000px]'></div>
+                    <div className='bg-slate-500 h-[400px] w-full'></div>
                 </div>
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
