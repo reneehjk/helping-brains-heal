@@ -49,10 +49,7 @@ const Resources = () => {
                         <div className='hover:underline'>Resource</div>
                     </div>
                 </div>
-                {/* <img src={concussionPic} className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' /> */} {/*copyright*/}
-                <div className=' border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0 overflow-hidden'>
-                    <div className='bg-slate-500 h-[400px] w-full'></div>
-                </div>
+                <img src="https://cdn.discordapp.com/attachments/1287577870947979305/1310858865457500210/depositphotos_136328748-stock-photo-a-human-brain-on-blue.jpg?ex=674f51b4&is=674e0034&hm=fe85cfa08d63e29006e4b8c832a7d1b8e361ae70d36ff66ded5e6f3aa27f8e2a&" className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' />
             </div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
                 <div className='lg:hidden'>
