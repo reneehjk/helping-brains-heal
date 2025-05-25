@@ -1,35 +1,55 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import ButtonLink from "./ButtonLink";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+// import ButtonLink from "./ButtonLink";
 
-const InfoCard = ({ name, location, details, imageSrc, linkTo }) => {
+const InfoCard = ({ name = "Name", location = "-", details = "Description", imageSrc, linkTo }) => {
     return (
-        <div className="group relative rounded-xl overflow-hidden min-w-[240px] w-full pb-5 sm:max-w-[345px] sm:h-[360px] lg:w-full lg:h-[387px] shadow-md md:shadow-none hover:shadow-md duration-300">
-            <div className="h-[98px] sm:h-[125px] lg:h-[155px] overflow-hidden">
-                {(!imageSrc && <div className='bg-[#638BB3] w-full h-full'></div>)||(imageSrc && (<img src={imageSrc} alt={name} className="w-auto object-cover" />))}
+        <div className="group relative rounded-xl overflow-hidden min-w-[240px] w-full pb-5 sm:max-w-[345px] sm:h-[360px] lg:w-full lg:h-[387px] shadow-md transition-shadow duration-300">
+            {/* Image Section */}
+            <div className="h-[98px] sm:h-[125px] lg:h-[155px] overflow-hidden bg-[#638BB3]">
+                {imageSrc ? (
+                    <img
+                        src={imageSrc}
+                        alt={`Image of ${name}`}
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-[#638BB3]"></div>
+                )}
             </div>
-            <div className="relative mt-[10px] h-auto md:mt-[13px] lg:mt-[15px] mx-4 ">
-                <h3 className="hidden sm:block text-center sm:text-left text-xl font-satoshiBold">{name || "Name"}</h3>
+
+            {/* Content Section */}
+            <div className="relative mt-3 mx-4">
+                {/* Name */}
                 <a
                     href={linkTo}
-                    className= "group-hover:shadow-text-shadow group-hover:scale-105 hover:text-newsBlue transition duration-30 block sm:hidden text-[1.25rem] font-satoshiBold text-center"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hidden sm:block text-center sm:text-left text-xl font-satoshiBold text-primaryBlue underline"
                 >
-                    {name || "Name"} 
-                    <span className='ml-3 text-[1.15rem]'><FontAwesomeIcon icon={faArrowUpRightFromSquare}/>  </span>
+                    {name}
                 </a>
-                
-                <p className="mt-[1px] lg:mt-[7px] text-center text-primaryBlue sm:text-left text-lg font-satoshiMedium">{location || "-"}</p>
-                <p className="mt-[3px] lg:mt-[7px] max-h-[150px] font-erodeRegular ">{details || "Description"}</p>
-                <div className=" hidden sm:block absolute top-1 right-0 ">
-                    <ButtonLink label={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />} href={linkTo} width="py-1 sm:py-2 px-4" />
-                </div>
+                {/* Location */}
+                <p className="mt-1 lg:mt-2 text-center text-primaryBlue sm:text-left text-lg font-satoshiMedium">
+                    {location}
+                </p>
+
+                {/* Details */}
+                <p className="mt-2 lg:mt-3 max-h-[150px] font-erodeRegular text-gray-700">
+                    {details}
+                </p>
+
+                {/* Button Link */}
+                {/* <div className="hidden sm:block absolute top-1 right-0">
+                    <ButtonLink
+                        label={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
+                        href={linkTo}
+                        width="py-1 sm:py-2 px-4"
+                    />
+                </div> */}
             </div>
-
         </div>
-
     );
 };
-export default InfoCard;
 
+export default InfoCard;

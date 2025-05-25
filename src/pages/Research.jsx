@@ -79,10 +79,18 @@ const Research = () => {
                         ))
                     )}
                 </div>
-
-                <div className="w-full shadow-lg border bg-secondaryBlue bg-opacity-15 rounded-lg border-primaryBlue  mt-5 p-2">
-                    <div className="font-satoshiBold lg:text-xl text-lg text-fontBlack ">Why you should consider enrolling in a research study</div>
-                    <div className=" font-erodeRegular pt-2 text-fontBlack">Talk about the stigma around research and privacy and why it’s important to understand that RESEARCH IS A GOOD THING
+                <div className='border-b-2 border-gray-300 my-10'></div>
+                <div className="w-full shadow-lg border bg-secondaryBlue bg-opacity-15 rounded-lg border-primaryBlue mt-5 p-2">
+                    <div className="font-satoshiBold lg:text-xl text-lg text-fontBlack">
+                        Why you should consider enrolling in a research study
+                    </div>
+                    <div className="font-erodeRegular pt-2 text-fontBlack">
+                        Participating in research studies helps advance medical knowledge and improve treatments for brain injuries.
+                        While some people may have concerns about privacy, it’s important to know that research studies are conducted
+                        under strict ethical guidelines to protect your personal information. By joining a study, you not only gain
+                        access to potential clinical care and resources but also contribute to the development of better therapies
+                        and support systems for others facing similar challenges. Remember, research is a collaborative effort that
+                        benefits everyone in the long run.
                     </div>
                 </div>
             </div>

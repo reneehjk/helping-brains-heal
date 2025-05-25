@@ -55,14 +55,14 @@ function About() {
                 <title>About - Helping Brains Heal</title>
             </Helmet>
             <div className="min-h-screen flex flex-col justify-start lg:space-y-16 space-y-6 mx-auto w-full max-w-7xl px-5 md:px-10 md:py-20">
-                <div className="flex xl:flex-row lg:flex-row flex-col items-center space-x-6 lg:pb-24 md:mt-10 sm:mt-20 xs:mt-20 xl:mb-0 lg:mb-0 mb-10">
+                <div className="flex xl:flex-row lg:flex-row flex-col items-center justify-center space-x-6 md:mt-10 sm:mt-20 xs:mt-20 xl:mb-0 lg:mb-0 mb-10">
                     <img src={logo} className="w-28 h-28 self-center" alt="Helping Brains Heal Logo" />
                     <div className="font-satoshiBold text-5xl xl:text-left lg:text-left text-center">
                         About Helping Brains Heal
                     </div>
                 </div>
-                <div className="font-satoshiBold text-3xl">Our Mission </div>
-                <div className="flex font-erodeRegular xl:text-xl lg:text-lg text-base text-left mt-3 lg:pb-24 sm:mx-5">
+                {/* <div className="font-satoshiBold text-3xl">Our Mission </div> */}
+                <div className="flex font-erodeRegular xl:text-xl lg:text-lg text-base mt-3 lg:pb-24 sm:mx-5 text-center">
                     Our mission is to enhance the accessibility of treatments for individuals enduring brain injuries. We strive to improve
                     access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment
                     opportunities. We hope to make a difference during the earlier stages of recovery.
@@ -102,7 +102,10 @@ function About() {
                 </div>
                 <div className="flex justify-center">
                     <Link to="/news">
-                        <button className="bg-transparent border xl:text-lg lg:text-lg text-base border-fontBlack px-4 lg:py-2 py-1 text-fontBlack rounded-full hover:bg-fontBlack hover:text-white transition duration-300">
+                        <button
+                            className="bg-transparent border xl:text-lg lg:text-lg text-base border-fontBlack px-4 lg:py-2 py-1 text-fontBlack rounded-full hover:bg-fontBlack hover:text-white transition duration-300 cursor-not-allowed opacity-50"
+                            disabled
+                        >
                             View All
                         </button>
                     </Link>

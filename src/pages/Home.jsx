@@ -91,7 +91,7 @@ const Home = () => {
                             Helping Brains Heal
                         </h1>
                         <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
-                            By supporting clinical research in neurorehabilitation, and community-based organizations in the Great Toronto Area, Helping Brains Heal services individuals enduring symptoms of brain injury and makes treatments more accessible.
+                            Supporting neurorehabilitation research and community organizations to make brain injury treatments accessible in the Greater Toronto Area.
                         </p>
                         <a
                             href="https://branchoutfoundation.com/"
@@ -109,12 +109,7 @@ const Home = () => {
                                 2024 Recipient of Impact Grant Award from <strong>Branch Out Neurological Foundation.</strong>
                             </p>
                         </a>
-                        {/* <p className="mt-4 text-lg text-gray-900 mr-8 font-erodeRegular">
-                                What will you find on this website? A guide to free resources such as a concussion peer mentorship program, audio-based stories of brain injury patients and medical experts, a symptoms log, and many more!
-                                </p> */}
-
-
-                        <Button to="/about" className='mt-5'>About us</Button>
+                        {/* <Button to="/about" className='mt-5'>About us</Button> */}
                     </div>
 
                     {/* Hero Image */}
