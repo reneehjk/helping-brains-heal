@@ -62,12 +62,12 @@ function About() {
                     </div>
                 </div>
                 <div className="font-satoshiBold text-3xl">Our Mission </div>
-                <div className="flex self-center font-erodeRegular xl:text-lg lg:text-lg text-base text-center mt-3 lg:pb-24 sm:mx-5">
+                <div className="flex font-erodeRegular xl:text-xl lg:text-lg text-base text-left mt-3 lg:pb-24 sm:mx-5">
                     Our mission is to enhance the accessibility of treatments for individuals enduring brain injuries. We strive to improve
-                        access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment 
-                        opportunities. We hope to make a difference during the earlier stages of recovery. 
+                    access to brain injury rehabilitation resources by connecting patients with affordable and convenient treatment
+                    opportunities. We hope to make a difference during the earlier stages of recovery.
                 </div>
-              
+
 
                 <div className="font-satoshiBold text-3xl">Gallery</div>
                 <ReactImageGallery items={galleryImages} />

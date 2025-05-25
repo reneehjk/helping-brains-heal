@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import doctor from "../assets/doctor.png";
 import question from "../assets/question.png";
 import sanityClient from '../sanity/sanityClient';
-import concussionPic from '../assets/how-concussions-impact-brain-health-web.jpg'
+import { useQuery } from "@tanstack/react-query";
+// import concussionPic from '../assets/how-concussions-impact-brain-health-web.jpg'
 
 
 const remark = [
@@ -23,7 +24,26 @@ const qa = [
     { question: 'What are brain injuries?', answer: 'A brain injury is any damage to the brain post-birth. The two types of acquired brain injuries are non-traumatic brain injuries and traumatic brain injuries. The types of traumatic brain injuries can range from mild traumatic brain injuries, also known as concussions, to severe traumatic brain injuries (Brain Injury Canada).' }
 ]
 
+const fetchSanityResources = async () => {
+    const data = await sanityClient.fetch(`
+        *[_type == "resourceItem"]{
+            _id,
+            name,
+            link,
+    }`
+    );
+    return data;
+}
+
 const Resources = () => {
+    const { data: resources = [], resourcesIsLoading: isLoading } = useQuery({
+        queryKey: ['resources'],
+        queryFn: fetchSanityResources,
+        staleTime: 1000 * 60 * 5,
+    });
+
+    console.log('resources', resources)
+
     return (
         <div className="relative mx-auto w-full max-w-7xl px-5 py-20 md:px-10 select-none">
             <Helmet>
@@ -36,21 +56,39 @@ const Resources = () => {
             <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
             <div className="mx-auto max-w-7xl pt-8">
                 <div className=" font-satoshiMedium lg:text-xl text-primaryBlue">
-                For those in the Great Toronto Area searching for recovery during acute or chronic stages of a brain injury, we have compiled a list of free resources available including: Peer mentorship programs, symptom and lifestyle trackers, email templates for self advocating, and more.
+                    For those in the Great Toronto Area searching for recovery during acute or chronic stages of a brain injury, we have compiled a list of free resources available including: Peer mentorship programs, symptom and lifestyle trackers, email templates for self advocating, and more.
                 </div>
             </div>
             <div className="flex lg:flex-row flex-col justify-between mt-10 mb-10">
-               <div>
-                    <div className='lg:mt-5 font-satoshiMedium xl:text-xl lg:text-xl md:text-lg lg:text-left text-center'>
-                        <div className='hover:underline'>Resource</div>
-                        <div className='hover:underline'>Resource</div>
-                        <div className='hover:underline'>Resource</div>
-                        <div className='hover:underline'>Resource</div>
-                        <div className='hover:underline'>Resource</div>
-                    </div>
+                <div>
+                    {isLoading ? (
+                        <div className="text-center text-lg font-satoshiMedium text-gray-700">
+                            Loading resources...
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {resources.map((resource) => (
+                                <a
+                                    key={resource._id}
+                                    href={resource.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block p-5 border rounded-lg shadow-sm hover:shadow-md transition-shadow bg-white"
+                                >
+                                    <h3 className="text-lg font-satoshiBold text-primaryBlue mb-2">
+                                        {resource.name}
+                                    </h3>
+                                    <p className="text-sm text-gray-600">
+                                        Click to view resource
+                                    </p>
+                                </a>
+                            ))}
+                        </div>
+                    )}
                 </div>
-                <img src="https://cdn.discordapp.com/attachments/1287577870947979305/1310858865457500210/depositphotos_136328748-stock-photo-a-human-brain-on-blue.jpg?ex=674f51b4&is=674e0034&hm=fe85cfa08d63e29006e4b8c832a7d1b8e361ae70d36ff66ded5e6f3aa27f8e2a&" className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' />
+                {/* <img src="https://cdn.discordapp.com/attachments/1287577870947979305/1310858865457500210/depositphotos_136328748-stock-photo-a-human-brain-on-blue.jpg?ex=674f51b4&is=674e0034&hm=fe85cfa08d63e29006e4b8c832a7d1b8e361ae70d36ff66ded5e6f3aa27f8e2a&" className='border rounded-xl xl:max-w-[45%] lg:max-w-[45%] self-center mt-10 lg:mt-0 xl:mt-0' /> */}
             </div>
+            <div className='border-b-2 border-gray-300 mb-10'></div>
             <div className='flex lg:flex-row lg:justify-between flex-col'>
                 <div className='lg:hidden'>
                     <h1 className="text-3xl font-satoshiBold mb-4">Concussion</h1>
