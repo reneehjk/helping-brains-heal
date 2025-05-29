@@ -7,6 +7,8 @@ import Button from '../components/Button';
 import { motion, useMotionValue, useTransform, useInView } from 'framer-motion';
 import Ticker from '../components/Ticker';
 import ProgressBar from '../components/ProgressBar';
+import brochure from '../assets/Helping_Brains_Heal.png'
+
 
 const teamCardVariants = {
     hidden: { opacity: 0 },
@@ -145,9 +147,15 @@ const Home = () => {
             </section>
 
             <section className="py-20">
-                <h2 className="text-3xl font-satoshiBold mb-6">Pamphlet</h2>
-                <div className="bg-gray-200 aspect-w-16 aspect-h-9 w-full max-w-3xl flex items-center justify-center rounded-lg shadow-md">
-                    <p className="text-gray-500">Placeholder</p>
+                <h2 className="text-3xl font-satoshiBold mb-6 text-center">Pamphlet</h2>
+                <div className="flex justify-center items-center w-full">
+                    <div className="bg-gray-200 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl flex items-center justify-center rounded-lg shadow-md overflow-hidden p-4">
+                        <img
+                            src={brochure}
+                            alt="Helping Brains Heal Brochure"
+                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
+                        />
+                    </div>
                 </div>
             </section>
 
