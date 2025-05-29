@@ -142,7 +142,7 @@ const Home = () => {
                     <p className="text-gray-600 font-erodeRegular mb-4">
                         Help us reach our goal of building and delivering 500 care packages to rehabilitation clinics supporting brain injury patients. The personalized care packages, built by other brain injury survivors, will go directly to patients in these programs.
                     </p>
-                    <Button to="/donations" variant="outline" disabled={false} className='mt-5'>Donate</Button>
+                    <Button to="/donations" disabled={false} className='mt-2'>Donate</Button>
                 </div>
             </section>
 

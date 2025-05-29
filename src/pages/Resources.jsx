@@ -5,6 +5,7 @@ import question from "../assets/question.png";
 import sanityClient from '../sanity/sanityClient';
 import { useQuery } from "@tanstack/react-query";
 // import concussionPic from '../assets/how-concussions-impact-brain-health-web.jpg'
+import SectionHeader from '../components/SectionHeader';
 
 
 const remark = [
@@ -49,16 +50,10 @@ const Resources = () => {
             <Helmet>
                 <title>Free Resources - Helping Brains Heal</title>
             </Helmet>
-            <h1 className="text-left text-5xl font-satoshiBold xl:pt-20 lg:pt-20 md:pt-14 pt-7">
-                Free Resources
-            </h1>
-            <div className="absolute top-0 right-0 w-56 h-56 bg-[#1689FE] opacity-45 rounded-full blur-[120px] -z-10"></div>
-            <div className="absolute top-10 right-20 w-56 h-56 bg-[#37CAEC] opacity-40 rounded-full blur-[120px] -z-10"></div>
-            <div className="mx-auto max-w-7xl pt-8">
-                <div className=" font-satoshiMedium lg:text-xl text-primaryBlue">
-                    For those in the Great Toronto Area searching for recovery during acute or chronic stages of a brain injury, we have compiled a list of free resources available including: Peer mentorship programs, symptom and lifestyle trackers, email templates for self advocating, and more.
-                </div>
-            </div>
+            <SectionHeader
+                title="Free Resources"
+                description="For those in the Greater Toronto Area searching for recovery during acute or chronic stages of a brain injury, we have compiled a list of free resources available including: Peer mentorship programs, symptom and lifestyle trackers, email templates for self advocating, and more."
+            />
             <div className="flex lg:flex-row flex-col justify-between mt-10 mb-10">
                 <div>
                     {isLoading ? (

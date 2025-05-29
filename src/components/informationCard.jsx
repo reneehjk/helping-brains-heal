@@ -1,6 +1,3 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-// import ButtonLink from "./ButtonLink";
 
 const InfoCard = ({ name = "Name", location = "-", details = "Description", imageSrc, linkTo }) => {
     return (
@@ -38,15 +35,6 @@ const InfoCard = ({ name = "Name", location = "-", details = "Description", imag
                 <p className="mt-2 lg:mt-3 max-h-[150px] font-erodeRegular text-gray-700">
                     {details}
                 </p>
-
-                {/* Button Link */}
-                {/* <div className="hidden sm:block absolute top-1 right-0">
-                    <ButtonLink
-                        label={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                        href={linkTo}
-                        width="py-1 sm:py-2 px-4"
-                    />
-                </div> */}
             </div>
         </div>
     );

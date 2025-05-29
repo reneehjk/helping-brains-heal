@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import NotFound from './pages/NotFound';
 import { HelmetProvider } from 'react-helmet-async';
+import ScrollToTop from './util/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <HelmetProvider>
           <Router>
+            <ScrollToTop />
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />

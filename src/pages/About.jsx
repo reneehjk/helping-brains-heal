@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from 'react-helmet-async';
 import "react-image-gallery/styles/css/image-gallery.css";
 import ReactImageGallery from "react-image-gallery";
+import Button from "../components/Button";
 
 
 const fetchGalleryImages = async () => {
@@ -69,8 +70,18 @@ function About() {
                 </div>
 
 
-                <div className="font-satoshiBold text-3xl">Gallery</div>
-                <ReactImageGallery items={galleryImages} />
+                {/* <div className="font-satoshiBold text-3xl">Gallery</div> */}
+                <div className="w-full flex justify-center items-center">
+                    <div className="w-full max-w-full">
+                        <ReactImageGallery
+                            items={galleryImages}
+                            showThumbnails={true}
+                            showPlayButton={false}
+                            showFullscreenButton={true}
+                            additionalClass="custom-gallery"
+                        />
+                    </div>
+                </div>
 
                 <div className="font-satoshiBold text-3xl">Latest News</div>
                 <div className="flex lg:flex-row lg:justify-between lg:space-x-10 flex-col justify-center space-y-4">
@@ -80,6 +91,10 @@ function About() {
                             <Skeleton height={20} width="60%" className="mt-4" />
                             <Skeleton height={15} width="80%" className="mt-2" />
                             <Skeleton height={15} width="50%" className="mt-2" />
+                        </div>
+                    ) : newsItems.length === 0 ? (
+                        <div className="w-full text-center text-lg text-gray-500 py-10">
+                            No news available at this time. Please check back later!
                         </div>
                     ) : (
                         // Animate each NewsItem with staggered effect
@@ -101,26 +116,30 @@ function About() {
                     )}
                 </div>
                 <div className="flex justify-center">
-                    <Link to="/news">
-                        <button
-                            className="bg-transparent border xl:text-lg lg:text-lg text-base border-fontBlack px-4 lg:py-2 py-1 text-fontBlack rounded-full hover:bg-fontBlack hover:text-white transition duration-300 cursor-not-allowed opacity-50"
-                            disabled
-                        >
-                            View All
-                        </button>
-                    </Link>
+                    <Button
+                        to="/news"
+                        variant="outline"
+                        size="medium"
+                        disabled
+                        className="xl:text-lg lg:text-lg text-base border-fontBlack text-fontBlack opacity-50 cursor-not-allowed"
+                    >
+                        View All
+                    </Button>
                 </div>
+
                 <div className="flex justify-center lg:py-24 py-12">
                     <div className="flex flex-col items-center">
                         <div className="font-satoshiBold text-3xl text-center">Support Recovery Efforts</div>
-                        <div className="font-erodeRegular xl:text-lg lg:text-lg text-base mt-6 lg:w-1/2 w-3/4 text-center">
+                        <div className="font-erodeRegular xl:text-lg lg:text-lg text-base my-6 lg:w-1/2 w-3/4 text-center">
                             Your donation helps fund care packages and rehabilitation resources for individuals with acquired brain injuries.
                         </div>
-                        <Link to="/donations">
-                            <button className="mt-6 bg-secondaryBlue xl:text-lg lg:text-lg text-base font-satoshiMedium px-6 lg:py-2 py-1 text-background rounded-full hover:scale-110 transition duration-300">
-                                Donate Now
-                            </button>
-                        </Link>
+                        <Button
+                            to="/donations"
+                            variant="primary"
+                            size="medium"
+                        >
+                            Donate Now
+                        </Button>
                     </div>
                 </div>
             </div>
