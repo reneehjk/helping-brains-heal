@@ -22,7 +22,7 @@ const InfoCard = ({ name = "Name", location = "-", details = "Description", imag
                     href={linkTo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:block text-center sm:text-left text-xl font-satoshiBold text-primaryBlue underline"
+                    className="block text-center sm:text-left text-xl font-satoshiBold text-primaryBlue underline"
                 >
                     {name}
                 </a>
